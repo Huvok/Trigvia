@@ -12,6 +12,7 @@
 		7FC8CC4D2245741D0007A58E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC4B2245741D0007A58E /* Main.storyboard */; };
 		7FC8CC4F2245741E0007A58E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC4E2245741E0007A58E /* Assets.xcassets */; };
 		7FC8CC522245741E0007A58E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC502245741E0007A58E /* LaunchScreen.storyboard */; };
+		7FC8CC5A224576110007A58E /* TriviaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC59224576110007A58E /* TriviaTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7FC8CC4E2245741E0007A58E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FC8CC512245741E0007A58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FC8CC532245741E0007A58E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FC8CC59224576110007A58E /* TriviaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				7FC8CC472245741D0007A58E /* AppDelegate.swift */,
 				7FC8CC492245741D0007A58E /* ViewController.swift */,
 				7FC8CC4B2245741D0007A58E /* Main.storyboard */,
+				7FC8CC59224576110007A58E /* TriviaTableViewController.swift */,
 				7FC8CC4E2245741E0007A58E /* Assets.xcassets */,
 				7FC8CC502245741E0007A58E /* LaunchScreen.storyboard */,
 				7FC8CC532245741E0007A58E /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FC8CC5A224576110007A58E /* TriviaTableViewController.swift in Sources */,
 				7FC8CC4A2245741D0007A58E /* ViewController.swift in Sources */,
 				7FC8CC482245741D0007A58E /* AppDelegate.swift in Sources */,
 			);
