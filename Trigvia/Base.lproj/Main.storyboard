@@ -117,7 +117,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FrA-l7-6cU" kind="show" id="BBI-7k-JI8"/>
+                                    <segue destination="FrA-l7-6cU" kind="show" identifier="anglesToSides" id="BBI-7k-JI8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escribe los ángulos que conozcas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhw-w6-mPI">
@@ -132,9 +132,9 @@
                         <viewLayoutGuide key="safeArea" id="T9g-EN-acg"/>
                     </view>
                     <connections>
-                        <outlet property="tfAngle1" destination="feY-gT-qfi" id="BH9-CA-MtH"/>
-                        <outlet property="tfAngle2" destination="jCt-kG-zKG" id="8Qu-zH-d1H"/>
-                        <outlet property="tfAngle3" destination="AKE-d6-Mva" id="bdS-1f-Msm"/>
+                        <outletCollection property="tfAngles" destination="feY-gT-qfi" collectionClass="NSMutableArray" id="EMD-ed-f3q"/>
+                        <outletCollection property="tfAngles" destination="jCt-kG-zKG" collectionClass="NSMutableArray" id="V88-zL-YcR"/>
+                        <outletCollection property="tfAngles" destination="AKE-d6-Mva" collectionClass="NSMutableArray" id="y5Z-nL-bwL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Col-Bf-DEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,9 +215,9 @@
                         <viewLayoutGuide key="safeArea" id="lED-mI-U2D"/>
                     </view>
                     <connections>
-                        <outlet property="tfSide1" destination="sG3-qX-qrY" id="Iii-D5-bVg"/>
-                        <outlet property="tfSide2" destination="FSR-Yd-jLx" id="ReD-pa-6r1"/>
-                        <outlet property="tfSide3" destination="Wvl-JZ-3Be" id="J7g-dV-YZ4"/>
+                        <outletCollection property="tfSides" destination="sG3-qX-qrY" collectionClass="NSMutableArray" id="EFJ-hq-EgO"/>
+                        <outletCollection property="tfSides" destination="FSR-Yd-jLx" collectionClass="NSMutableArray" id="7Su-4b-i7D"/>
+                        <outletCollection property="tfSides" destination="Wvl-JZ-3Be" collectionClass="NSMutableArray" id="13F-aJ-b5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PQ-IG-1fA" userLabel="First Responder" sceneMemberID="firstResponder"/>
