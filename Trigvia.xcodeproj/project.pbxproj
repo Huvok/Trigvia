@@ -16,6 +16,7 @@
 		7FC8CC5C224579F00007A58E /* PlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */; };
 		7FC8CC5E22457AD00007A58E /* PlaygroundOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC5D22457AD00007A58E /* PlaygroundOptionsViewController.swift */; };
 		7FC8CC6222457D490007A58E /* AnglesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC6122457D490007A58E /* AnglesViewController.swift */; };
+		7FC8CC64224582020007A58E /* SidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC63224582020007A58E /* SidesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundViewController.swift; sourceTree = "<group>"; };
 		7FC8CC5D22457AD00007A58E /* PlaygroundOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundOptionsViewController.swift; sourceTree = "<group>"; };
 		7FC8CC6122457D490007A58E /* AnglesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnglesViewController.swift; sourceTree = "<group>"; };
+		7FC8CC63224582020007A58E /* SidesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7FC8CC472245741D0007A58E /* AppDelegate.swift */,
 				7FC8CC492245741D0007A58E /* ViewController.swift */,
 				7FC8CC4B2245741D0007A58E /* Main.storyboard */,
+				7FC8CC63224582020007A58E /* SidesViewController.swift */,
 				7FC8CC5D22457AD00007A58E /* PlaygroundOptionsViewController.swift */,
 				7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */,
 				7FC8CC59224576110007A58E /* TriviaTableViewController.swift */,
@@ -152,6 +155,7 @@
 				7FC8CC5C224579F00007A58E /* PlaygroundViewController.swift in Sources */,
 				7FC8CC4A2245741D0007A58E /* ViewController.swift in Sources */,
 				7FC8CC482245741D0007A58E /* AppDelegate.swift in Sources */,
+				7FC8CC64224582020007A58E /* SidesViewController.swift in Sources */,
 				7FC8CC5E22457AD00007A58E /* PlaygroundOptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

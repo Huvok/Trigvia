@@ -13,11 +13,14 @@ class PlaygroundViewController: UIViewController {
     /* 1 = Ángulos
        2 = Lados
        3 = Mixto */
-    var intModo : Int = 0
+    var intMode : Int = 0
     
-    var intAngle1 = 0
-    var intAngle2 = 0
-    var intAngle3 = 0
+    var fAngle1 : Float = 0.0
+    var fAngle2 : Float = 0.0
+    var fAngle3 : Float = 0.0
+    var fSide1 : Float = 0.0
+    var fSide2 : Float = 0.0
+    var fSide3 : Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  AnglesViewController.swift
+//  SidesViewController.swift
 //  Trigvia
 //
 //  Created by Alumno on 3/22/19.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class AnglesViewController: UIViewController {
+class SidesViewController: UIViewController {
 
     
-    @IBOutlet weak var tfAngle1: UITextField!
-    @IBOutlet weak var tfAngle2: UITextField!
-    @IBOutlet weak var tfAngle3: UITextField!
-    
+    @IBOutlet weak var tfSide1: UITextField!
+    @IBOutlet weak var tfSide2: UITextField!
+    @IBOutlet weak var tfSide3: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +22,13 @@ class AnglesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let fAngle1 = Float(tfAngle1.text!),
-            let fAngle2 = Float(tfAngle2.text!),
-            let fAngle3 = Float(tfAngle3.text!) {
+        if let fSide1 = Float(tfSide1.text!),
+            let fSide2 = Float(tfSide2.text!),
+            let fSide3 = Float(tfSide3.text!) {
             
-            if fAngle1 >= 180.0 || fAngle1 <= 0.0 ||
-                fAngle2 >= 180.0 || fAngle2 <= 0.0 ||
-                fAngle3 >= 180.0 || fAngle3 <= 0.0 ||
-                fAngle1 + fAngle2 + fAngle3 != 180.0 {
+            if fSide1 <= 0 ||
+                fSide2 <= 0 ||
+                fSide3 <= 0  {
                 let alert = UIAlertController(title: "Error", message: "Los datos proporcionados no son válidos", preferredStyle: .alert)
                 let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 
@@ -39,10 +37,10 @@ class AnglesViewController: UIViewController {
             }
             else {
                 let vistaPlayground = segue.destination as! PlaygroundViewController
-                vistaPlayground.intMode = 1
-                vistaPlayground.fAngle1 = fAngle1
-                vistaPlayground.fAngle2 = fAngle2
-                vistaPlayground.fAngle3 = fAngle3
+                vistaPlayground.intMode = 2
+                vistaPlayground.fSide1 = fSide1
+                vistaPlayground.fSide2 = fSide2
+                vistaPlayground.fSide3 = fSide3
             }
         }
         else {
