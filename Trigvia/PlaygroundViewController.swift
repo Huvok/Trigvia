@@ -10,11 +10,6 @@ import UIKit
 
 class PlaygroundViewController: UIViewController {
     
-    /* 1 = Ángulos
-       2 = Lados
-       3 = Mixto */
-    var intMode : Int = 0
-    
     var fAngle1 : Float = 0.0
     var fAngle2 : Float = 0.0
     var fAngle3 : Float = 0.0
