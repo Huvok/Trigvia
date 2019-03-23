@@ -50,6 +50,24 @@ class PlaygroundViewController: UIViewController {
         self.view.addSubview(bezierView)
     }
 
+    @IBAction func arriba(_ sender: UILongPressGestureRecognizer) {
+        dSide2 = min(200, dSide2 + 1)
+        drawTriangle()
+    }
+    
+    @IBAction func abajo(_ sender: UILongPressGestureRecognizer) {
+        dSide2 = max(40, dSide2 - 1)
+        drawTriangle()
+    }
+    @IBAction func izq(_ sender: UILongPressGestureRecognizer) {
+        dSide1 = max(30, dSide1 - 1)
+        drawTriangle()
+    }
+    @IBAction func der(_ sender: UILongPressGestureRecognizer) {
+        dSide1 = min(200, dSide1 + 1)
+        drawTriangle()
+    }
+    
     /*
     // MARK: - Navigation
 
