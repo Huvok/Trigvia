@@ -25,6 +25,12 @@ class PlaygroundViewController: UIViewController {
     var y3: Double!
     
     @IBOutlet var bezierView: BezierView!
+    @IBOutlet weak var lbA: UILabel!
+    @IBOutlet weak var lbB: UILabel!
+    @IBOutlet weak var lbC: UILabel!
+    @IBOutlet weak var lba: UILabel!
+    @IBOutlet weak var lbb: UILabel!
+    @IBOutlet weak var lbc: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +39,9 @@ class PlaygroundViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        x1 = 0.0
+        x1 = 60.0
         y1 = 60.0
-        x2 = dSide1
+        x2 = dSide1 + 60
         y2 = y1
         x3 = cos(dAngle2 / 360 * 2 * Double.pi) * dSide2
         y3 = sin(dAngle2 / 360 * 2 * Double.pi) * dSide2
@@ -47,7 +53,7 @@ class PlaygroundViewController: UIViewController {
         let touch = touches.first!
         let location = touch.location(in: bezierView)
         let hitView = bezierView.hitTest(location, with: event)
-        if (bezierView == hitView){
+        if (bezierView == hitView) {
             let yFinal = Double(location.y)
             let xFinal = Double(location.x)
             let dist1 = hypot(x1 - xFinal, y1 - yFinal)
@@ -57,11 +63,13 @@ class PlaygroundViewController: UIViewController {
                 x1 = xFinal
                 y1 = yFinal
                 drawTriangle()
-            }else if  dist2 < error{
+            }
+            else if dist2 < error {
                 x2 = xFinal
                 y2 = yFinal
                 drawTriangle()
-            }else if  dist3 < error{
+            }
+            else if dist3 < error {
                 x3 = xFinal
                 y3 = yFinal
                 drawTriangle()
@@ -76,16 +84,19 @@ class PlaygroundViewController: UIViewController {
                                   _x2: x2, _y2: y2,
                                   _x3: x3, _y3: y3)
         self.view.addSubview(bezierView)
+        
+        let sidea = sqrt(abs(x2 - x3) + abs(y2 - y3))
+        let sideb = sqrt(abs(x3 - x1) + abs(y3 - y1))
+        let sidec = sqrt(abs(x1 - x2) + abs(y1 - y2))
+        lba.text! = "a = " + String(format:"%.4f", sidea)
+        lbb.text! = "b = " + String(format:"%.4f", sideb)
+        lbc.text! = "c = " + String(format:"%.4f", sidec)
+        
+        let angleC = acos((sidea * sidea + sideb * sideb - sidec * sidec) / (-2.0 * sidea * sideb))
+        let angleB = acos((sidec * sidec + sidea * sidea - sideb * sideb) / (-2.0 * sidea * sidec))
+        let angleA = acos((sideb * sideb + sidec * sidec - sidea * sidea) / (-2.0 * sideb * sidec))
+        lbA.text! = "A = " + String(format:"%.4f", angleA * 180 / Double.pi)
+        lbB.text! = "B = " + String(format:"%.4f", angleB * 180 / Double.pi)
+        lbC.text! = "C = " + String(format:"%.4f", angleC * 180 / Double.pi)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
