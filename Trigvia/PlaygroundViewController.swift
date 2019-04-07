@@ -77,6 +77,11 @@ class PlaygroundViewController: UIViewController {
         }
     }
     
+    func euclidean(x1 : Double, y1: Double, x2: Double, y2: Double) -> Double{
+        let diffX = (x1 - x2)*(x1 - x2)
+        let diffY = (y1 - y2)*(y1 - y2)
+        return sqrt(diffX + diffY)
+    }
     func drawTriangle() {
         
         bezierView = BezierView(frame: bezierView.frame)
@@ -85,16 +90,21 @@ class PlaygroundViewController: UIViewController {
                                   _x3: x3, _y3: y3)
         self.view.addSubview(bezierView)
         
-        let sidea = sqrt(abs(x2 - x3) + abs(y2 - y3))
-        let sideb = sqrt(abs(x3 - x1) + abs(y3 - y1))
-        let sidec = sqrt(abs(x1 - x2) + abs(y1 - y2))
-        lba.text! = "a = " + String(format:"%.4f", sidea)
-        lbb.text! = "b = " + String(format:"%.4f", sideb)
-        lbc.text! = "c = " + String(format:"%.4f", sidec)
         
-        let angleC = acos((sidea * sidea + sideb * sideb - sidec * sidec) / (-2.0 * sidea * sideb))
-        let angleB = acos((sidec * sidec + sidea * sidea - sideb * sideb) / (-2.0 * sidea * sidec))
-        let angleA = acos((sideb * sideb + sidec * sidec - sidea * sidea) / (-2.0 * sideb * sidec))
+        //let sidea = sqrt((x2 - x3)*(x2 - x3) + (y2 - y3)*(y2 - y3))
+        let sidea = Double(round(5*euclidean(x1 : x2, y1: y2, x2: x3, y2: y3))/100)
+        //let sideb = sqrt((x3 - x1)*(x3 - x1) + (y3 - y1)*(y3 - y1))
+        let sideb = Double(round(5*euclidean(x1 : x1, y1: y1, x2: x3, y2: y3))/100)
+        //let sidec = sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2))
+        let sidec = Double(round(5*euclidean(x1 : x1, y1: y1, x2: x2, y2: y2))/100)
+        
+        lba.text! = "a = " + String(format:"%.2f", sidea)
+        lbb.text! = "b = " + String(format:"%.2f", sideb)
+        lbc.text! = "c = " + String(format:"%.2f", sidec)
+        
+        let angleC = acos((sidea * sidea + sideb * sideb - sidec * sidec) / (2.0 * sidea * sideb))
+        let angleB = asin(sideb * sin(angleC)/sidec)
+        let angleA = asin(sidea * sin(angleC)/sidec)
         lbA.text! = "A = " + String(format:"%.4f", angleA * 180 / Double.pi)
         lbB.text! = "B = " + String(format:"%.4f", angleB * 180 / Double.pi)
         lbC.text! = "C = " + String(format:"%.4f", angleC * 180 / Double.pi)
