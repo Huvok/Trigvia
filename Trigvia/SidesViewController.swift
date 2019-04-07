@@ -30,13 +30,11 @@ class SidesViewController: UIViewController {
     // MARK: - Auxiliar methods
     
     func degreesToRadians(degrees: Double) -> Double {
-        var radians = degrees / 180.0 * Double.pi
-        return radians
+        return degrees / 180.0 * Double.pi
     }
     
     func radiansToDegrees(radians: Double) -> Double {
-        var degrees = radians / Double.pi * 180.0
-        return degrees
+        return radians / Double.pi * 180.0
     }
     
     func countProvidedMeasures(arr: [Double?]) -> Int {
@@ -226,19 +224,21 @@ class SidesViewController: UIViewController {
     // MARK: - Navigation methods
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return validateInput()
+        //return validateInput()
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         solveMeasures()
-        let playgroundView = segue.destination as! PlaygroundViewController
-        
+        //let playgroundView = segue.destination as! PlaygroundViewController
+        /*
         for i in 0...2 {
             print(angles[i]!)
         }
         for i in 0...2 {
             print(sides[i]!)
         }
+         */
     }
 
 }
