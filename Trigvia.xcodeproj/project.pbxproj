@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F8CD8FF225BB4AF0054B253 /* Questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F8CD8FE225BB4AF0054B253 /* Questions.plist */; };
+		7F8CD901225BBAA00054B253 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CD900225BBAA00054B253 /* Question.swift */; };
 		7FC8CC482245741D0007A58E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC472245741D0007A58E /* AppDelegate.swift */; };
-		7FC8CC4A2245741D0007A58E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC492245741D0007A58E /* ViewController.swift */; };
+		7FC8CC4A2245741D0007A58E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC492245741D0007A58E /* QuestionViewController.swift */; };
 		7FC8CC4D2245741D0007A58E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC4B2245741D0007A58E /* Main.storyboard */; };
 		7FC8CC4F2245741E0007A58E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC4E2245741E0007A58E /* Assets.xcassets */; };
 		7FC8CC522245741E0007A58E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC502245741E0007A58E /* LaunchScreen.storyboard */; };
@@ -20,9 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F8CD8FE225BB4AF0054B253 /* Questions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Questions.plist; sourceTree = "<group>"; };
+		7F8CD900225BBAA00054B253 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7FC8CC442245741D0007A58E /* Trigvia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trigvia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC8CC472245741D0007A58E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7FC8CC492245741D0007A58E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7FC8CC492245741D0007A58E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7FC8CC4C2245741D0007A58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FC8CC4E2245741E0007A58E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FC8CC512245741E0007A58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,7 +70,8 @@
 			children = (
 				7FC8CC6122457D490007A58E /* AnglesViewController.swift */,
 				7FC8CC472245741D0007A58E /* AppDelegate.swift */,
-				7FC8CC492245741D0007A58E /* ViewController.swift */,
+				7FC8CC492245741D0007A58E /* QuestionViewController.swift */,
+				7F8CD900225BBAA00054B253 /* Question.swift */,
 				7FC8CC4B2245741D0007A58E /* Main.storyboard */,
 				7FC8CC63224582020007A58E /* SidesViewController.swift */,
 				7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */,
@@ -75,6 +80,7 @@
 				7FC8CC4E2245741E0007A58E /* Assets.xcassets */,
 				7FC8CC502245741E0007A58E /* LaunchScreen.storyboard */,
 				7FC8CC532245741E0007A58E /* Info.plist */,
+				7F8CD8FE225BB4AF0054B253 /* Questions.plist */,
 			);
 			path = Trigvia;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 			files = (
 				7FC8CC522245741E0007A58E /* LaunchScreen.storyboard in Resources */,
 				7FC8CC4F2245741E0007A58E /* Assets.xcassets in Resources */,
+				7F8CD8FF225BB4AF0054B253 /* Questions.plist in Resources */,
 				7FC8CC4D2245741D0007A58E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,9 +158,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FC8CC6222457D490007A58E /* AnglesViewController.swift in Sources */,
+				7F8CD901225BBAA00054B253 /* Question.swift in Sources */,
 				7FC8CC5A224576110007A58E /* TriviaTableViewController.swift in Sources */,
 				7FC8CC5C224579F00007A58E /* PlaygroundViewController.swift in Sources */,
-				7FC8CC4A2245741D0007A58E /* ViewController.swift in Sources */,
+				7FC8CC4A2245741D0007A58E /* QuestionViewController.swift in Sources */,
 				7FC8CC482245741D0007A58E /* AppDelegate.swift in Sources */,
 				7FC8CC6622458D4F0007A58E /* BezierView.swift in Sources */,
 				7FC8CC64224582020007A58E /* SidesViewController.swift in Sources */,

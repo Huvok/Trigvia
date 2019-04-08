@@ -297,7 +297,7 @@
             </objects>
             <point key="canvasLocation" x="2876" y="444.82758620689657"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Dificultades-->
         <scene sceneID="Yra-eq-Gcq">
             <objects>
                 <tableViewController id="wBg-V0-kGx" customClass="TriviaTableViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
@@ -313,6 +313,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="90d-Y8-3DD" kind="show" id="FIh-KE-549"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -320,7 +323,7 @@
                             <outlet property="delegate" destination="wBg-V0-kGx" id="mcC-7Z-7bg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="xYW-iz-1gH">
+                    <navigationItem key="navigationItem" title="Dificultades" id="xYW-iz-1gH">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="W5z-hM-vdp">
                             <connections>
                                 <action selector="dismissView:" destination="wBg-V0-kGx" id="cML-u8-hms"/>
@@ -331,6 +334,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNR-KL-0Hb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2081" y="-370"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="LZE-Nw-GU6">
+            <objects>
+                <viewController id="90d-Y8-3DD" customClass="QuestionViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ea-tL-hUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pregunta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waW-l0-eaP">
+                                <rect key="frame" x="16" y="146" width="343" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJe-GU-NEb">
+                                <rect key="frame" x="60" y="391" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Opcion 1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bah-rK-OaH">
+                                <rect key="frame" x="253" y="391" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Opcion 2"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-Gb-I5O">
+                                <rect key="frame" x="58" y="495" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Opcion 3"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6L-nP-7yc">
+                                <rect key="frame" x="253" y="489" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Opcion 4"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dificultad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smZ-7a-RLg">
+                                <rect key="frame" x="151" y="82" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0R-vB-Ef2">
+                                <rect key="frame" x="166" y="111" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CmU-EB-HG9"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnOption1" destination="iJe-GU-NEb" id="q56-IM-3xe"/>
+                        <outlet property="btnOption2" destination="Bah-rK-OaH" id="6n1-mM-Y6i"/>
+                        <outlet property="btnOption3" destination="Ut1-Gb-I5O" id="NwS-ey-xwk"/>
+                        <outlet property="btnOption4" destination="q6L-nP-7yc" id="MO2-T0-KSQ"/>
+                        <outlet property="lbDifficulty" destination="smZ-7a-RLg" id="UGD-qR-vZt"/>
+                        <outlet property="lbQuestion" destination="waW-l0-eaP" id="imv-Be-c4w"/>
+                        <outlet property="lbTopic" destination="X0R-vB-Ef2" id="BSm-2Y-3Wh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5I-ql-Ipb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="-369.26536731634184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nQh-uG-TYM">
