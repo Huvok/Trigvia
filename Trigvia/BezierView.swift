@@ -20,7 +20,6 @@ class BezierView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.backgroundColor = .white
     }
     
@@ -32,85 +31,43 @@ class BezierView: UIView {
         //    self.createRectangle()
         self.createTriangle()
         UIColor.black.setStroke()
+        path.lineWidth = 3.0
         path.stroke()
     }
     
     func createTriangle() {
         path = UIBezierPath()
+        path.lineCapStyle = .round
         path.move(to: CGPoint(x: x1, y: y1))
         path.addLine(to: CGPoint(x: x2, y: y2))
         path.addLine(to: CGPoint(x: x3, y: y3))
         path.close()
-        
         createTextLayer()
     }
     
+    func drawLetter(letter: String, x: Double, y: Double){
+        let n = 24.0
+        let textLayer = CATextLayer()
+        textLayer.string = letter
+        textLayer.foregroundColor = UIColor.red.cgColor
+        textLayer.font = UIFont(name: "Avenir", size: CGFloat(n) )
+        textLayer.fontSize = CGFloat(n)
+        textLayer.alignmentMode = CATextLayerAlignmentMode.center
+        textLayer.backgroundColor = UIColor.clear.cgColor
+        //textLayer.backgroundColor = UIColor.blue.cgColor
+        //textLayer.foregroundColor = UIColor.white.cgColor
+        textLayer.frame = CGRect(x: x - n/2, y: y - n/2, width: n, height: n)
+        textLayer.contentsScale = UIScreen.main.scale
+        self.layer.addSublayer(textLayer)
+    }
+    
     func createTextLayer() {
-        var textLayer = CATextLayer()
-        textLayer.string = "A"
-        textLayer.foregroundColor = UIColor.black.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 10.0)
-        textLayer.fontSize = 10.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.frame = CGRect(x: x1, y: y1, width: 10, height: 10)
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
-        
-        textLayer = CATextLayer()
-        textLayer.string = "B"
-        textLayer.foregroundColor = UIColor.black.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 10.0)
-        textLayer.fontSize = 10.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.frame = CGRect(x: x2, y: y2, width: 10, height: 10)
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
-        
-        textLayer = CATextLayer()
-        textLayer.string = "C"
-        textLayer.foregroundColor = UIColor.black.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 10.0)
-        textLayer.fontSize = 10.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.frame = CGRect(x: x3, y: y3, width: 10, height: 10)
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
-        
-        textLayer = CATextLayer()
-        textLayer.string = "a"
-        textLayer.foregroundColor = UIColor.black.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 10.0)
-        textLayer.fontSize = 10.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.frame = CGRect(x: (x2 + x3) / 2, y: (y2 + y3) / 2, width: 10, height: 10)
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
-        
-        textLayer = CATextLayer()
-        textLayer.string = "b"
-        textLayer.foregroundColor = UIColor.black.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 10.0)
-        textLayer.fontSize = 10.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.frame = CGRect(x: (x3 + x1) / 2, y: (y3 + y1) / 2, width: 10, height: 10)
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
-        
-        textLayer = CATextLayer()
-        textLayer.string = "c"
-        textLayer.foregroundColor = UIColor.black.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 10.0)
-        textLayer.fontSize = 10.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.clear.cgColor
-        textLayer.frame = CGRect(x: (x1 + x2) / 2, y: (y1 + y2) / 2, width: 10, height: 10)
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
+        drawLetter(letter: "A", x: x1, y: y1)
+        drawLetter(letter: "B", x: x2, y: y2)
+        drawLetter(letter: "C", x: x3, y: y3)
+        drawLetter(letter: "a", x: (x2 + x3) / 2, y: (y2 + y3) / 2)
+        drawLetter(letter: "b", x: (x3 + x1) / 2, y: (y3 + y1) / 2)
+        drawLetter(letter: "c", x: (x1 + x2) / 2, y: (y1 + y2) / 2)
     }
 
     func setCoordinates(_x1: Double, _y1: Double,
