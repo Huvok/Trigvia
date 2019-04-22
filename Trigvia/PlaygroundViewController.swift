@@ -31,9 +31,12 @@ class PlaygroundViewController: UIViewController {
     @IBOutlet weak var lba: UILabel!
     @IBOutlet weak var lbb: UILabel!
     @IBOutlet weak var lbc: UILabel!
+    @IBOutlet weak var viewData: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewData.layer.cornerRadius = 8
+        viewData.clipsToBounds = true
 
     }
     
@@ -45,11 +48,19 @@ class PlaygroundViewController: UIViewController {
         y2 = y1
         x3 = cos(dAngle2 / 360 * 2 * Double.pi) * dSide2
         y3 = sin(dAngle2 / 360 * 2 * Double.pi) * dSide2
+        let width = Double(bezierView.bounds.width/2)
+        let height = Double(bezierView.bounds.width/2)
+        x1 = x1 + width
+        y1 = y1 + height
+        x2 = x2 + width
+        y2 = y2 + height
+        x3 = x3 + width
+        y3 = y3 + height
         drawTriangle()
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let error = 10.0
+        let error = 24.0
         let touch = touches.first!
         let location = touch.location(in: bezierView)
         let hitView = bezierView.hitTest(location, with: event)
@@ -98,15 +109,15 @@ class PlaygroundViewController: UIViewController {
         //let sidec = sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2))
         let sidec = Double(round(5*euclidean(x1 : x1, y1: y1, x2: x2, y2: y2))/100)
         
-        lba.text! = "a = " + String(format:"%.2f", sidea)
-        lbb.text! = "b = " + String(format:"%.2f", sideb)
-        lbc.text! = "c = " + String(format:"%.2f", sidec)
+        lba.text! = String(format:"%.2f", sidea)
+        lbb.text! = String(format:"%.2f", sideb)
+        lbc.text! = String(format:"%.2f", sidec)
         
         let angleC = acos((sidea * sidea + sideb * sideb - sidec * sidec) / (2.0 * sidea * sideb))
         let angleB = asin(sideb * sin(angleC)/sidec)
         let angleA = asin(sidea * sin(angleC)/sidec)
-        lbA.text! = "A = " + String(format:"%.4f", angleA * 180 / Double.pi)
-        lbB.text! = "B = " + String(format:"%.4f", angleB * 180 / Double.pi)
-        lbC.text! = "C = " + String(format:"%.4f", angleC * 180 / Double.pi)
+        lbA.text! = String(format:"%.4f", angleA * 180 / Double.pi)
+        lbB.text! = String(format:"%.4f", angleB * 180 / Double.pi)
+        lbC.text! = String(format:"%.4f", angleC * 180 / Double.pi)
     }
 }
