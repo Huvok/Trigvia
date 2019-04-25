@@ -9,13 +9,17 @@
 import UIKit
 
 class Question: NSObject {
+    var id : Int
+    var strTopic : String!
     var strQuestion : String!
     var strAnswer : String!
-    var arrStrOptions = [String]()
+    var arrStrWA = [String]()
     
-    init(strQuestion : String, strAnswer : String, arrStrOptions : [String]) {
+    init(id: Int, strTopic : String, strQuestion : String, strAnswer : String, arrStrWA : [String]) {
+        self.id = id
+        self.strTopic = strTopic
         self.strQuestion = strQuestion
         self.strAnswer = strAnswer
-        self.arrStrOptions = arrStrOptions
+        self.arrStrWA = arrStrWA
     }
 }

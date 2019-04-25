@@ -9,7 +9,7 @@
 import UIKit
 
 class TriviaTableViewController: UITableViewController {
-    let arrStrDifficulties = ["Fácil", "Medio", "Difícil"]
+    let arrStrDifficulties = ["facil", "medio", "dificil"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

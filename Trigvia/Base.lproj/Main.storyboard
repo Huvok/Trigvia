@@ -351,34 +351,59 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJe-GU-NEb">
-                                <rect key="frame" x="60" y="391" width="60" height="30"/>
+                                <rect key="frame" x="35" y="369" width="129" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Opcion 1"/>
+                                <connections>
+                                    <action selector="btn1Click:" destination="90d-Y8-3DD" eventType="touchUpInside" id="P88-fN-AZB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bah-rK-OaH">
-                                <rect key="frame" x="253" y="391" width="62" height="30"/>
+                                <rect key="frame" x="215" y="369" width="125" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Opcion 2"/>
+                                <connections>
+                                    <action selector="btn2Click:" destination="90d-Y8-3DD" eventType="touchUpInside" id="NIA-Wn-ykL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-Gb-I5O">
-                                <rect key="frame" x="58" y="495" width="63" height="30"/>
+                                <rect key="frame" x="35" y="499" width="129" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Opcion 3"/>
+                                <connections>
+                                    <action selector="btn3Click:" destination="90d-Y8-3DD" eventType="touchUpInside" id="4ic-vL-eJO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6L-nP-7yc">
-                                <rect key="frame" x="253" y="489" width="63" height="30"/>
+                                <rect key="frame" x="215" y="498" width="125" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Opcion 4"/>
+                                <connections>
+                                    <action selector="btn4Click:" destination="90d-Y8-3DD" eventType="touchUpInside" id="feZ-Sx-TkH"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dificultad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smZ-7a-RLg">
-                                <rect key="frame" x="151" y="82" width="73" height="21"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-XO-Dpc">
+                                <rect key="frame" x="103" y="603" width="169" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Siguiente pregunta"/>
+                                <connections>
+                                    <action selector="btn4Click:" destination="90d-Y8-3DD" eventType="touchUpInside" id="1eA-Mr-x0P"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dificultad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smZ-7a-RLg">
+                                <rect key="frame" x="105" y="88" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tema" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0R-vB-Ef2">
-                                <rect key="frame" x="166" y="111" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tema" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0R-vB-Ef2">
+                                <rect key="frame" x="52" y="117" width="270" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -389,6 +414,7 @@
                         <viewLayoutGuide key="safeArea" id="CmU-EB-HG9"/>
                     </view>
                     <connections>
+                        <outlet property="btnNextQ" destination="F6e-XO-Dpc" id="Ksk-K1-51g"/>
                         <outlet property="btnOption1" destination="iJe-GU-NEb" id="q56-IM-3xe"/>
                         <outlet property="btnOption2" destination="Bah-rK-OaH" id="6n1-mM-Y6i"/>
                         <outlet property="btnOption3" destination="Ut1-Gb-I5O" id="NwS-ey-xwk"/>

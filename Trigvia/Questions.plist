@@ -5,22 +5,26 @@
 	<key>facil</key>
 	<dict>
 		<key>tema 1</key>
-		<dict>
-			<key>pregunta</key>
-			<string>pregunta q</string>
-			<key>respuesta</key>
-			<string>respuesta 1</string>
-			<key>incorrectas</key>
-			<array>
-				<string>incorrecta 1</string>
-				<string>incorrecta 2</string>
-				<string>incorrecta 3</string>
-			</array>
-		</dict>
+		<array>
+			<dict>
+				<key>id</key>
+				<integer>1</integer>
+				<key>pregunta</key>
+				<string>preguntaaa</string>
+				<key>respuesta</key>
+				<string>respuestaaa</string>
+				<key>incorrectas</key>
+				<array>
+					<string>incorrecta 1</string>
+					<string>incorrecta 2</string>
+					<string>incorrecta 3</string>
+				</array>
+			</dict>
+		</array>
 	</dict>
 	<key>medio</key>
-	<array/>
+	<dict/>
 	<key>dificil</key>
-	<array/>
+	<dict/>
 </dict>
 </plist>
