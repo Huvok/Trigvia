@@ -319,24 +319,33 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
     
     // MARK: - Navigation methods
     
+    @IBAction func unwindPlayground(unwindSegue: UIStoryboardSegue) {
+        
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        clearData()
-        if validateInput() {
-            addCurrentMeasuresToSolutionSteps()
-            iterateSumOfAngles()
-            if validateTriangleMeasures() {
-                solveMeasures()
+        if identifier == "popOverSegue" {
+            clearData()
+            if validateInput() {
+                addCurrentMeasuresToSolutionSteps()
+                iterateSumOfAngles()
+                if validateTriangleMeasures() {
+                    solveMeasures()
+                }
+                else {
+                    clearData()
+                    return false
+                }
             }
-            else {
+            else{
                 clearData()
                 return false
             }
+            return true
         }
-        else{
-            clearData()
-            return false
+        else {
+            return true
         }
-        return true
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -353,8 +362,14 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             popOverView.height = self.view.frame.height - 20
             popOverView.solutionSteps = solutionSteps
         }
-        else {
-            //
+        else if segue.identifier == "playgroundSegue" {
+            let playgroundView = segue.destination as! PlaygroundViewController
+            playgroundView.dAngle1 = angles[0]!
+            playgroundView.dAngle2 = angles[1]!
+            playgroundView.dAngle3 = angles[2]!
+            playgroundView.dSide1 = sides[0]!
+            playgroundView.dSide2 = sides[1]!
+            playgroundView.dSide3 = sides[2]!
         }
     }
 }
