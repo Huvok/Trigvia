@@ -4,8 +4,18 @@
 <dict>
 	<key>facil</key>
 	<dict>
-		<key>tema 1</key>
+		<key>angulos</key>
 		<array>
+			<dict>
+				<key>id</key>
+				<integer>0</integer>
+				<key>pregunta</key>
+				<string>What is the measure of angle A in the right triangle below? </string>
+				<key>respuesta</key>
+				<string></string>
+				<key>incorrectas</key>
+				<array/>
+			</dict>
 			<dict>
 				<key>id</key>
 				<integer>1</integer>
