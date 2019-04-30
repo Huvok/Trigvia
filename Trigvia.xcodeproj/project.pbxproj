@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FAAAF544150A121186E8A65 /* Pods_Trigvia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC5409257A79E19E6B6A150 /* Pods_Trigvia.framework */; };
+		7F21CF4122776CAC00A418AD /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21CF4022776CAC00A418AD /* Question.swift */; };
+		7F21CF4322776CD200A418AD /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21CF4222776CD200A418AD /* QuestionViewController.swift */; };
 		7FC8CC482245741D0007A58E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC472245741D0007A58E /* AppDelegate.swift */; };
 		7FC8CC4A2245741D0007A58E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC492245741D0007A58E /* ViewController.swift */; };
 		7FC8CC4D2245741D0007A58E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8CC4B2245741D0007A58E /* Main.storyboard */; };
@@ -16,12 +19,13 @@
 		7FC8CC5C224579F00007A58E /* PlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */; };
 		7FC8CC64224582020007A58E /* SidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC63224582020007A58E /* SidesViewController.swift */; };
 		7FC8CC6622458D4F0007A58E /* BezierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8CC6522458D4F0007A58E /* BezierView.swift */; };
-		B27709C12643A5A4862DA52F /* Pods_Trigvia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B498C4B8EC438A1A5D62F3A2 /* Pods_Trigvia.framework */; };
+		7FC9D8B62278E57D00B797D1 /* Questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9D8B52278E57400B797D1 /* Questions.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A459A812875CAEE06DEE341 /* Pods-Trigvia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trigvia.release.xcconfig"; path = "Target Support Files/Pods-Trigvia/Pods-Trigvia.release.xcconfig"; sourceTree = "<group>"; };
-		49D2CBF941D49F60BC2F4EFF /* Pods-Trigvia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trigvia.debug.xcconfig"; path = "Target Support Files/Pods-Trigvia/Pods-Trigvia.debug.xcconfig"; sourceTree = "<group>"; };
+		4A8963ECA16A0BE7B7DFAA11 /* Pods-Trigvia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trigvia.debug.xcconfig"; path = "Target Support Files/Pods-Trigvia/Pods-Trigvia.debug.xcconfig"; sourceTree = "<group>"; };
+		7F21CF4022776CAC00A418AD /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		7F21CF4222776CD200A418AD /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7FC8CC442245741D0007A58E /* Trigvia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trigvia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC8CC472245741D0007A58E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC8CC492245741D0007A58E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +37,9 @@
 		7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundViewController.swift; sourceTree = "<group>"; };
 		7FC8CC63224582020007A58E /* SidesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidesViewController.swift; sourceTree = "<group>"; };
 		7FC8CC6522458D4F0007A58E /* BezierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierView.swift; sourceTree = "<group>"; };
-		B498C4B8EC438A1A5D62F3A2 /* Pods_Trigvia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trigvia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FC9D8B52278E57400B797D1 /* Questions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Questions.plist; path = /Volumes/A00815354/Trigvia/Trigvia/Questions.plist; sourceTree = "<absolute>"; };
+		8AC5409257A79E19E6B6A150 /* Pods_Trigvia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trigvia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE6C042B1C684F3907521B3C /* Pods-Trigvia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trigvia.release.xcconfig"; path = "Target Support Files/Pods-Trigvia/Pods-Trigvia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27709C12643A5A4862DA52F /* Pods_Trigvia.framework in Frameworks */,
+				1FAAAF544150A121186E8A65 /* Pods_Trigvia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +59,8 @@
 			children = (
 				7FC8CC462245741D0007A58E /* Trigvia */,
 				7FC8CC452245741D0007A58E /* Products */,
-				FCA5AA85EEEA2DAFB95B6ECF /* Pods */,
-				956F3491C781B4761E3BDD9C /* Frameworks */,
+				B921AC223E63CB451BB27806 /* Pods */,
+				D34B121E00D97FB907EE9EDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,9 +75,12 @@
 		7FC8CC462245741D0007A58E /* Trigvia */ = {
 			isa = PBXGroup;
 			children = (
+				7FC9D8B52278E57400B797D1 /* Questions.plist */,
 				7FC8CC472245741D0007A58E /* AppDelegate.swift */,
 				7FC8CC492245741D0007A58E /* ViewController.swift */,
 				7FC8CC4B2245741D0007A58E /* Main.storyboard */,
+				7F21CF4022776CAC00A418AD /* Question.swift */,
+				7F21CF4222776CD200A418AD /* QuestionViewController.swift */,
 				7FC8CC63224582020007A58E /* SidesViewController.swift */,
 				7FC8CC5B224579F00007A58E /* PlaygroundViewController.swift */,
 				7FC8CC6522458D4F0007A58E /* BezierView.swift */,
@@ -83,22 +92,21 @@
 			path = Trigvia;
 			sourceTree = "<group>";
 		};
-		956F3491C781B4761E3BDD9C /* Frameworks */ = {
+		B921AC223E63CB451BB27806 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B498C4B8EC438A1A5D62F3A2 /* Pods_Trigvia.framework */,
+				4A8963ECA16A0BE7B7DFAA11 /* Pods-Trigvia.debug.xcconfig */,
+				DE6C042B1C684F3907521B3C /* Pods-Trigvia.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		FCA5AA85EEEA2DAFB95B6ECF /* Pods */ = {
+		D34B121E00D97FB907EE9EDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49D2CBF941D49F60BC2F4EFF /* Pods-Trigvia.debug.xcconfig */,
-				3A459A812875CAEE06DEE341 /* Pods-Trigvia.release.xcconfig */,
+				8AC5409257A79E19E6B6A150 /* Pods_Trigvia.framework */,
 			);
-			name = Pods;
-			path = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FC9D8B62278E57D00B797D1 /* Questions.plist in Resources */,
 				7FC8CC522245741E0007A58E /* LaunchScreen.storyboard in Resources */,
 				7FC8CC4F2245741E0007A58E /* Assets.xcassets in Resources */,
 				7FC8CC4D2245741D0007A58E /* Main.storyboard in Resources */,
@@ -226,6 +235,8 @@
 				7FC8CC4A2245741D0007A58E /* ViewController.swift in Sources */,
 				7FC8CC482245741D0007A58E /* AppDelegate.swift in Sources */,
 				7FC8CC6622458D4F0007A58E /* BezierView.swift in Sources */,
+				7F21CF4122776CAC00A418AD /* Question.swift in Sources */,
+				7F21CF4322776CD200A418AD /* QuestionViewController.swift in Sources */,
 				7FC8CC64224582020007A58E /* SidesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +381,7 @@
 		};
 		7FC8CC572245741E0007A58E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49D2CBF941D49F60BC2F4EFF /* Pods-Trigvia.debug.xcconfig */;
+			baseConfigurationReference = 4A8963ECA16A0BE7B7DFAA11 /* Pods-Trigvia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -388,7 +399,7 @@
 		};
 		7FC8CC582245741E0007A58E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A459A812875CAEE06DEE341 /* Pods-Trigvia.release.xcconfig */;
+			baseConfigurationReference = DE6C042B1C684F3907521B3C /* Pods-Trigvia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

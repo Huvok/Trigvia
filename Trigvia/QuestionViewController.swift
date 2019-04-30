@@ -1,0 +1,168 @@
+//
+//  ViewController.swift
+//  Trigvia
+//
+//  Created by Alumno on 3/22/19.
+//  Copyright © 2019 Alumno. All rights reserved.
+//
+import UIKit
+
+class QuestionViewController : UIViewController {
+    
+    var difficulty : String!
+    
+    @IBOutlet weak var lbDifficulty: UILabel!
+    @IBOutlet weak var lbTopic: UILabel!
+    @IBOutlet weak var lbQuestion: UILabel!
+    
+    @IBOutlet weak var btnOption1: UIButton!
+    @IBOutlet weak var btnOption2: UIButton!
+    @IBOutlet weak var btnOption3: UIButton!
+    @IBOutlet weak var btnOption4: UIButton!
+    
+    @IBOutlet weak var btnNextQ: UIButton!
+    
+    var arrQuestions = [Question]()
+    var arrQuestionsDic : NSDictionary = [:]
+    var usedQuestions = [Bool]()
+    var intCurrentQuestion : Int = 0
+    var intAnswerBtn : Int = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let path = Bundle.main.path(forResource: "Questions", ofType: "plist")!
+        let dicPList : NSDictionary!
+        dicPList = NSDictionary(contentsOfFile: path)
+        
+        let dificultadPList : NSDictionary!
+        dificultadPList = dicPList[difficulty] as? NSDictionary
+        
+        for (key, _) in dificultadPList {
+            let k = key as! String
+            
+            let arr : NSArray!
+            arr = dificultadPList[k] as? NSArray
+            
+            for i in 0...arr.count - 1 {
+                let dic : NSDictionary!
+                dic = arr[i] as? NSDictionary
+                arrQuestions.append(Question(id: dic["id"] as! Int, strTopic: key as! String, strQuestion: dic["pregunta"] as! String, strAnswer: dic["respuesta"] as! String, arrStrWA: dic["incorrectas"] as! [String]))
+            }
+        }
+        
+        lbDifficulty.text = difficulty
+        
+        nextQuestion()
+    }
+    
+    func nextQuestion() {
+        let rnd = Int.random(in: 0...arrQuestions.count - 1)
+        intCurrentQuestion = rnd
+        
+        lbTopic.text = arrQuestions[rnd].strTopic
+        lbQuestion.text = arrQuestions[rnd].strQuestion
+        
+        var rndBtn = [Int]()
+        rndBtn.append(contentsOf: 1...4)
+        
+        var cnt : Int = 0
+        while rndBtn.count > 1 {
+            let auxRnd = Int.random(in: 0...rndBtn.count - 1)
+            
+            if rndBtn[auxRnd] == 1 {
+                btnOption1.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            }
+            else if rndBtn[auxRnd] == 2 {
+                btnOption2.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            }
+            else if rndBtn[auxRnd] == 3 {
+                btnOption3.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            }
+            else {
+                btnOption4.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            }
+            
+            rndBtn.remove(at: auxRnd)
+            cnt = cnt + 1
+        }
+        
+        if rndBtn[0] == 1 {
+            btnOption1.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+            intAnswerBtn = 1
+        }
+        else if rndBtn[0] == 2 {
+            btnOption2.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+            intAnswerBtn = 2
+        }
+        else if rndBtn[0] == 3 {
+            btnOption3.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+            intAnswerBtn = 3
+        }
+        else {
+            btnOption4.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+            intAnswerBtn = 4
+        }
+    }
+    
+    @IBAction func btn1Click(_ sender: Any) {
+        if intAnswerBtn == 1 {
+            accepted()
+            btnOption1.backgroundColor = .green
+        }
+        else {
+            wrongAnswer()
+            btnOption1.backgroundColor = .red
+        }
+    }
+    
+    @IBAction func btn2Click(_ sender: Any) {
+        if intAnswerBtn == 2 {
+            accepted()
+            btnOption2.backgroundColor = .green
+        }
+        else {
+            wrongAnswer()
+            btnOption2.backgroundColor = .red
+        }
+    }
+    
+    @IBAction func btn3Click(_ sender: Any) {
+        if intAnswerBtn == 3 {
+            accepted()
+            btnOption3.backgroundColor = .green
+        }
+        else {
+            wrongAnswer()
+            btnOption3.backgroundColor = .red
+        }
+    }
+    
+    @IBAction func btn4Click(_ sender: Any) {
+        if intAnswerBtn == 4 {
+            accepted()
+            btnOption4.backgroundColor = .green
+        }
+        else {
+            wrongAnswer()
+            btnOption4.backgroundColor = .red
+        }
+    }
+    
+    func accepted() {
+        let alert = UIAlertController(title: "Respuesta correcta", message: "Puedes seguir a la siguiente pregunta", preferredStyle: .alert)
+        let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alert.addAction(accion)
+        present(alert, animated: true, completion: nil)
+        
+        btnNextQ.isHidden = false
+    }
+    
+    func wrongAnswer() {
+        let alert = UIAlertController(title: "Respuesta incorrecta", message: "No te rindas, champ", preferredStyle: .alert)
+        let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alert.addAction(accion)
+        present(alert, animated: true, completion: nil)
+    }
+}
