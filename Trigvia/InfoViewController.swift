@@ -26,5 +26,22 @@ class InfoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func dataPath() -> String {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent("AnsweredQuestions.plist")
+        return pathArchivo.path
+    }
 
+    @IBAction func resetApp(_ sender: Any) {
+        do {
+            try _ = FileManager.default.removeItem(atPath: dataPath())
+        }
+        catch {
+            print("No se encontró el plist")
+        }
+        
+        let champ : NSMutableArray = []
+        champ.write(toFile: dataPath(), atomically: true)
+    }
 }
