@@ -9,7 +9,7 @@
 import UIKit
 import iosMath
 
-class SidesViewController: UIViewController {
+class SidesViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet var tfSides: [UITextField]!
     @IBOutlet var tfAngles: [UITextField]!
@@ -320,6 +320,7 @@ class SidesViewController: UIViewController {
     // MARK: - Navigation methods
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        clearData()
         if validateInput() {
             addCurrentMeasuresToSolutionSteps()
             iterateSumOfAngles()
@@ -338,9 +339,16 @@ class SidesViewController: UIViewController {
         return true
     }
     
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "popOverSegue" {
             let popOverView = segue.destination as! SolutionPopOverViewController
+            popOverView.popoverPresentationController?.delegate = self
+            popOverView.popoverPresentationController?.sourceRect = CGRect(x: self.view.center.x, y: self.view.center.y, width: 0, height: 0)
+            popOverView.popoverPresentationController?.sourceView = self.view
             popOverView.width = self.view.frame.width - 20
             popOverView.height = self.view.frame.height - 20
             popOverView.solutionSteps = solutionSteps

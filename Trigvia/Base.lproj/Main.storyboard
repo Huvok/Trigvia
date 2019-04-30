@@ -87,7 +87,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mJ4-tk-rJK" kind="presentation" identifier="popOverSegue" id="n9w-fh-mAa"/>
+                                    <segue destination="mJ4-tk-rJK" kind="popoverPresentation" identifier="popOverSegue" popoverAnchorView="mfr-Xb-7XG" id="n9w-fh-mAa">
+                                        <popoverArrowDirection key="popoverArrowDirection"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escribe los lados que conozcas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8j-s6-JFW">
@@ -216,11 +218,12 @@
             <objects>
                 <viewController id="mJ4-tk-rJK" customClass="SolutionPopOverViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="opZ-za-jyT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wrf-uR-JJ9"/>
                     </view>
+                    <size key="freeformSize" width="100" height="100"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyE-7B-Ka9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

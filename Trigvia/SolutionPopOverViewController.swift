@@ -22,29 +22,19 @@ class SolutionPopOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         preferredContentSize = CGSize(width: width, height: height)
-        self.view.frame.origin.x = 10
-        self.view.frame.origin.y = 10
         createSolutionLabel()
-        createOKButton()
     }
     
     func createSolutionLabel() {
         self.view.addSubview(latexlabel)
         latexlabel.backgroundColor = .white
-        latexlabel.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.size.width, height: self.view.frame.size.height - 52)
+        latexlabel.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.size.width, height: self.view.frame.size.height)
         latexlabel.textAlignment = .center
         latexlabel.latex = "\\begin{gather} "
         for i in 0..<solutionSteps.count {
             latexlabel.latex?.append(solutionSteps[i])
         }
         latexlabel.latex?.append("\\end{gather}")
-    }
-    
-    func createOKButton() {
-        self.view.addSubview(OKbtn)
-        OKbtn.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.size.height - 52 + self.view.frame.origin.y, width: self.view.frame.width, height: 52)
-        OKbtn.setTitle("OK", for: .normal)
-        OKbtn.addTarget(self, action: #selector(closePopOver), for: .touchUpInside)
     }
     
     @IBAction func closePopOver() {
