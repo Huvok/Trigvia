@@ -27,6 +27,7 @@ class QuestionViewController : UIViewController {
     var usedQuestions = [Bool]()
     var intCurrentQuestion : Int = 0
     var intAnswerBtn : Int = 0
+    var arrSolved : NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +53,29 @@ class QuestionViewController : UIViewController {
         
         lbDifficulty.text = difficulty
         
+        let filePath = dataPath()
+        if FileManager.default.fileExists(atPath: filePath) {
+            arrSolved = NSMutableArray(contentsOfFile: filePath)!
+        }
+        
         nextQuestion()
     }
     
+    func dataPath() -> String {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent("AnsweredQuestions.plist")
+        return pathArchivo.path
+    }
+    
     func nextQuestion() {
+        btnOption1.backgroundColor = .lightGray
+        btnOption2.backgroundColor = .lightGray
+        btnOption3.backgroundColor = .lightGray
+        btnOption4.backgroundColor = .lightGray
+        btnNextQ.isHidden = true
+        
         let rnd = Int.random(in: 0...arrQuestions.count - 1)
-        intCurrentQuestion = rnd
+        intCurrentQuestion = arrQuestions[rnd].id
         
         lbTopic.text = arrQuestions[rnd].strTopic
         lbQuestion.text = arrQuestions[rnd].strQuestion
@@ -156,6 +174,9 @@ class QuestionViewController : UIViewController {
         present(alert, animated: true, completion: nil)
         
         btnNextQ.isHidden = false
+        
+        arrSolved.add(intCurrentQuestion)
+        arrSolved.write(toFile: dataPath(), atomically: true)
     }
     
     func wrongAnswer() {
@@ -164,5 +185,10 @@ class QuestionViewController : UIViewController {
         
         alert.addAction(accion)
         present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func btnNextQuestion(_ sender: Any) {
+        nextQuestion()
     }
 }

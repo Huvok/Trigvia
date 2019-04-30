@@ -35,6 +35,10 @@ class InfoViewController: UIViewController {
 
     @IBAction func resetApp(_ sender: Any) {
         do {
+            if FileManager.default.fileExists(atPath: dataPath()) {
+                let arrSolved = NSMutableArray(contentsOfFile: dataPath())!
+                print(arrSolved)
+            }
             try _ = FileManager.default.removeItem(atPath: dataPath())
         }
         catch {

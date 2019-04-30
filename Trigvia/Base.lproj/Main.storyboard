@@ -288,12 +288,21 @@ nombreProyecto se distribuye como está de manera gratuita y se prohíbe su dist
                                     <action selector="resetApp:" destination="OQ3-9t-784" eventType="touchUpInside" id="d7b-iJ-63H"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SQ-dA-cgT">
+                                <rect key="frame" x="156" y="617" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Regresar"/>
+                                <connections>
+                                    <segue destination="nxS-Dh-B2Z" kind="unwind" unwindAction="unwindInfoFor:" id="RHb-pI-A1V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wiw-Y2-as3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMA-bm-Tfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nxS-Dh-B2Z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="176.80000000000001" y="803.74812593703155"/>
         </scene>
@@ -514,7 +523,7 @@ nombreProyecto se distribuye como está de manera gratuita y se prohíbe su dist
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyR-K4-0cI">
                                 <rect key="frame" x="206" y="410" width="135" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94508916139602661" green="0.94509202241897583" blue="0.94509834051132202" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Option 2"/>
                                 <connections>
                                     <action selector="btn2Click:" destination="Ai2-iY-q0J" eventType="touchUpInside" id="dBj-Nm-FWA"/>
@@ -552,6 +561,9 @@ nombreProyecto se distribuye como está de manera gratuita y se prohíbe su dist
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Siguiente Pregunta"/>
+                                <connections>
+                                    <action selector="btnNextQuestion:" destination="Ai2-iY-q0J" eventType="touchUpInside" id="JDa-KK-vUp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Q-Ih-1rU">
                                 <rect key="frame" x="109" y="97" width="156" height="21"/>
@@ -577,10 +589,10 @@ nombreProyecto se distribuye como está de manera gratuita y se prohíbe su dist
                     </view>
                     <connections>
                         <outlet property="btnNextQ" destination="WWz-4G-Tf8" id="EZb-uQ-HJ6"/>
-                        <outlet property="btnOption1" destination="T5E-kx-ubl" id="Taq-Ji-zfM"/>
+                        <outlet property="btnOption1" destination="T5E-kx-ubl" id="ums-wq-AAK"/>
                         <outlet property="btnOption2" destination="qyR-K4-0cI" id="tZW-Zs-qln"/>
                         <outlet property="btnOption3" destination="rqI-67-u1D" id="RaF-ev-jdX"/>
-                        <outlet property="btnOption4" destination="rqI-67-u1D" id="kpO-Ey-50L"/>
+                        <outlet property="btnOption4" destination="bFR-9R-XdT" id="5Fg-NE-Cxw"/>
                         <outlet property="lbDifficulty" destination="h7Q-Ih-1rU" id="ooi-9e-qjQ"/>
                         <outlet property="lbQuestion" destination="bQi-0e-kgu" id="BHh-Pb-bct"/>
                         <outlet property="lbTopic" destination="TgY-N9-pGD" id="y9U-C9-8cR"/>
