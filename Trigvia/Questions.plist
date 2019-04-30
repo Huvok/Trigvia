@@ -8,26 +8,156 @@
 		<array>
 			<dict>
 				<key>id</key>
-				<integer>0</integer>
+				<integer>11</integer>
 				<key>pregunta</key>
-				<string>What is the measure of angle A in the right triangle below? </string>
+				<string>En la figura de abajo, encuentra coseno de theta</string>
 				<key>respuesta</key>
-				<string></string>
+				<string>4 / 5</string>
 				<key>incorrectas</key>
-				<array/>
+				<array>
+					<string>3 / 5</string>
+					<string>1 / 5</string>
+					<string>2 / 5</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>10</integer>
+				<key>pregunta</key>
+				<string>¿Cuál es la longitud de AB en la figura de abajo?</string>
+				<key>respuesta</key>
+				<string>12 * raiz(3)</string>
+				<key>incorrectas</key>
+				<array>
+					<string>12 * raiz(2)</string>
+					<string>12</string>
+					<string>12 * raiz(6)</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>9</integer>
+				<key>pregunta</key>
+				<string>En la figura de abajo, BC es perpendicular a AC, CD mide 8, la medida del ángulo en D es 60 grados y la medida del ángulo en A es 45 grados. Encuentra la longitud de AB</string>
+				<key>respuesta</key>
+				<string>8 * raiz(6)</string>
+				<key>incorrectas</key>
+				<array>
+					<string>8 * raiz(3)</string>
+					<string>8 * raiz(2)</string>
+					<string>8</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>8</integer>
+				<key>pregunta</key>
+				<string>Encuentra el área del cuadrado cuya diagonal principal mide 40 metros</string>
+				<key>respuesta</key>
+				<string>800 metros cuadrados</string>
+				<key>incorrectas</key>
+				<array>
+					<string>80 metros cuadrados</string>
+					<string>1600 metros cuadrados</string>
+					<string>40 metros cuadrados</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>7</integer>
+				<key>pregunta</key>
+				<string>Encuentra la longitud de la hipotenusa en el triángulo rectángulo de abajo, donde x es un número real</string>
+				<key>respuesta</key>
+				<string>raiz(5)</string>
+				<key>incorrectas</key>
+				<array>
+					<string>10</string>
+					<string>25</string>
+					<string>5</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>6</integer>
+				<key>pregunta</key>
+				<string>Encuentra la medida de AC en el triángulo rectángulo de abajo</string>
+				<key>respuesta</key>
+				<string>9 * raiz(2)</string>
+				<key>incorrectas</key>
+				<array>
+					<string>9</string>
+					<string>18 * raiz(2)</string>
+					<string>18</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>5</integer>
+				<key>pregunta</key>
+				<string>En el triángulo de abajo, ¿Cuánto es seno de alfa?</string>
+				<key>respuesta</key>
+				<string>13 * raiz(10) / 50</string>
+				<key>incorrectas</key>
+				<array>
+					<string>13 / 9</string>
+					<string>9 / 13</string>
+					<string>13 / 24</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>4</integer>
+				<key>pregunta</key>
+				<string>En el triángulo ABC de abajo, el ángulo A mide 30 grados y la longitud de AC es de 8 unidades. Encuentra la longitud del lado BC</string>
+				<key>respuesta</key>
+				<string>8 / raiz(3)</string>
+				<key>incorrectas</key>
+				<array>
+					<string>4 / raiz(3)</string>
+					<string>4</string>
+					<string>8</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>3</integer>
+				<key>pregunta</key>
+				<string>En el triángulo rectángulo, la medida de uno de sus ángulos es 49 grados y la hipotenusa tiene una medida de 50 cm. ¿Cuál de las siguientes opciones es la aproximación más cercana a la medida, en cm, del cateto opuesto a éste ángulo?</string>
+				<key>respuesta</key>
+				<string>37.7 grados</string>
+				<key>incorrectas</key>
+				<array>
+					<string>32.8 grados</string>
+					<string>57.5 grados</string>
+					<string>30.3 grados</string>
+				</array>
 			</dict>
 			<dict>
 				<key>id</key>
 				<integer>1</integer>
 				<key>pregunta</key>
-				<string>preguntaaa</string>
+				<string>¿Cuál es la medida del ángulo A en el siguiente triángulo rectángulo?</string>
 				<key>respuesta</key>
-				<string>respuestaaa</string>
+				<string>27 grados</string>
 				<key>incorrectas</key>
 				<array>
-					<string>incorrecta 1</string>
-					<string>incorrecta 2</string>
-					<string>incorrecta 3</string>
+					<string>90 grados</string>
+					<string>19 grados</string>
+					<string>17 grados</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>2</integer>
+				<key>pregunta</key>
+				<string>¿Cuál es el valor de x en la siguiente figura?</string>
+				<key>respuesta</key>
+				<string>3</string>
+				<key>incorrectas</key>
+				<array>
+					<string>20</string>
+					<string>9</string>
+					<string>1</string>
 				</array>
 			</dict>
 		</array>
