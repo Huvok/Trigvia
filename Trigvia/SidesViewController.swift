@@ -9,10 +9,13 @@
 import UIKit
 import iosMath
 
-class SidesViewController: UIViewController {
+class SidesViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet var tfSides: [UITextField]!
     @IBOutlet var tfAngles: [UITextField]!
+    
+    @IBOutlet weak var btnContinue: UIButton!
+    @IBOutlet weak var btnSolve: UIButton!
     
     var angles = [Double?](repeating: nil, count: 3)
     var sides = [Double?](repeating: nil, count: 3)
@@ -22,9 +25,7 @@ class SidesViewController: UIViewController {
     var anglesNames = ["\\alpha", "\\beta", "\\theta"]
     var sideNames = ["a", "b", "c"]
     
-    let latexlabel = MTMathUILabel()
-    
-    let MIN_ERROR_MARGIN = 0.000000001
+    let MAX_ERROR_MARGIN = 0.000000001
     
     let ERROR_MESSAGES = ["Alguno de los valores introducidos no es un número",
                           "Alguno de los valores está fuera del rango permitido",
@@ -38,18 +39,6 @@ class SidesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func displaySolution() {
-        self.view.addSubview(latexlabel)
-        latexlabel.backgroundColor = .white
-        latexlabel.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        latexlabel.textAlignment = .center
-        latexlabel.latex = "\\begin{gather} "
-        for i in 0..<solutionSteps.count {
-            latexlabel.latex?.append(solutionSteps[i])
-        }
-        latexlabel.latex?.append("\\end{gather}")
     }
     
     func clearData() {
@@ -79,28 +68,8 @@ class SidesViewController: UIViewController {
     }
     
     func closeCompare(numA: Double, numB: Double) -> Bool {
-        return fabs(numA - numB) < MIN_ERROR_MARGIN
+        return fabs(numA - numB) < MAX_ERROR_MARGIN
     }
-    
-    // MARK: - Outlet's action methods
-    
-    @IBAction func debugSolution(_ sender: Any) {
-        if validateInput() {
-            addCurrentMeasuresToSolutionSteps()
-            iterateSumOfAngles()
-            if validateTriangleMeasures() {
-                solveMeasures()
-                displaySolution()
-            }
-            else {
-                clearData()
-            }
-        }
-        else{
-            clearData()
-        }
-    }
-    
     
     // MARK: - Auxiliar methods
     
@@ -224,7 +193,7 @@ class SidesViewController: UIViewController {
             if angles[i] == nil { return false }
             sum = sum + angles[i]!
         }
-        return (fabs(sum - 180.0) < MIN_ERROR_MARGIN)
+        return closeCompare(numA: sum - 180.0, numB: 0.0)
     }
   
     func validateLawOfSines() -> Bool {
@@ -327,7 +296,6 @@ class SidesViewController: UIViewController {
                 return false
             }
         }
-        showAlert(message: nil)
         return true
     }
     
@@ -348,5 +316,60 @@ class SidesViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
+    
+    // MARK: - Navigation methods
+    
+    @IBAction func unwindPlayground(unwindSegue: UIStoryboardSegue) {
+        
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "popOverSegue" {
+            clearData()
+            if validateInput() {
+                addCurrentMeasuresToSolutionSteps()
+                iterateSumOfAngles()
+                if validateTriangleMeasures() {
+                    solveMeasures()
+                }
+                else {
+                    clearData()
+                    return false
+                }
+            }
+            else{
+                clearData()
+                return false
+            }
+            return true
+        }
+        else {
+            return true
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popOverSegue" {
+            let popOverView = segue.destination as! SolutionPopOverViewController
+            popOverView.popoverPresentationController?.delegate = self
+            popOverView.popoverPresentationController?.sourceRect = CGRect(x: self.view.center.x, y: self.view.center.y, width: 0, height: 0)
+            popOverView.popoverPresentationController?.sourceView = self.view
+            popOverView.width = self.view.frame.width - 20
+            popOverView.height = self.view.frame.height - 20
+            popOverView.solutionSteps = solutionSteps
+        }
+        else if segue.identifier == "playgroundSegue" {
+            let playgroundView = segue.destination as! PlaygroundViewController
+            playgroundView.dAngle1 = angles[0]!
+            playgroundView.dAngle2 = angles[1]!
+            playgroundView.dAngle3 = angles[2]!
+            playgroundView.dSide1 = sides[0]!
+            playgroundView.dSide2 = sides[1]!
+            playgroundView.dSide3 = sides[2]!
+        }
+    }
 }
