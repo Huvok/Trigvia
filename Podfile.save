@@ -6,5 +6,5 @@ target 'Trigvia' do
   use_frameworks!
 
   # Pods for Trigvia
-  pod 'iosMath'
+  ∑
 end
