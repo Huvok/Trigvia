@@ -132,6 +132,10 @@ class QuestionViewController : UIViewController {
         if intAnswerBtn == 1 {
             accepted()
             btnOption1.backgroundColor = .green
+            btnOption1.isEnabled = true
+            btnOption2.isEnabled = true
+            btnOption3.isEnabled = true
+            btnOption4.isEnabled = true
         }
         else {
             wrongAnswer()
@@ -173,6 +177,10 @@ class QuestionViewController : UIViewController {
     }
     
     func accepted() {
+        btnOption1.isEnabled = false
+        btnOption2.isEnabled = false
+        btnOption3.isEnabled = false
+        btnOption4.isEnabled = false
         let alert = UIAlertController(title: "Respuesta correcta", message: "Puedes seguir a la siguiente pregunta", preferredStyle: .alert)
         let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         
@@ -196,5 +204,9 @@ class QuestionViewController : UIViewController {
     
     @IBAction func btnNextQuestion(_ sender: Any) {
         nextQuestion()
+        btnOption1.isEnabled = true
+        btnOption2.isEnabled = true
+        btnOption3.isEnabled = true
+        btnOption4.isEnabled = true
     }
 }

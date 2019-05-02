@@ -406,7 +406,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 addCurrentMeasuresToSolutionSteps()
                 iterateSumOfAngles()
                 if validateTriangleMeasures() {
-                    print("valid")
                     solveMeasures()
                     return true
                 }
@@ -440,6 +439,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             playgroundView.dSide1 = sides[0]!
             playgroundView.dSide2 = sides[1]!
             playgroundView.dSide3 = sides[2]!
+            print(sides, angles[0]!*Double.pi/180, angles[1]!*Double.pi/180, angles[2]!*Double.pi/180)
         }
     }
 }
