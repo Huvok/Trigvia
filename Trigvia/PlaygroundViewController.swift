@@ -52,6 +52,7 @@ class PlaygroundViewController: UIViewController {
         dSide3 *= 100
         width = Double(bezierView.bounds.width)
         height = Double(bezierView.bounds.height)
+        print(width, height)
         if (dAngle2 > Double.pi/2){
             x1 = -dSide3*sin(dAngle2 - Double.pi/2)
             y1 = -dSide3*sin(Double.pi - dAngle2)
@@ -85,19 +86,20 @@ class PlaygroundViewController: UIViewController {
         let bounding_x = max(x1, x2, x3) - min(x1, x2 , x3)
         let bounding_y = max(y1, y2, y3) - min(y1, y2 , y3)
         var scale_factor = 1.0
-        if (bounding_x > width - 100 && bounding_y > height - 100){
+        let offfset = width*0.4
+        if (bounding_x > width - offfset && bounding_y > height - offfset){
             if bounding_x > bounding_y {
-                scale_factor = (width - 100) / bounding_x
+                scale_factor = (width - offfset) / bounding_x
             }
             else{
-                scale_factor = (height - 100) /  bounding_y
+                scale_factor = (height - offfset) /  bounding_y
             }
         }
-        else if (bounding_x > width - 100){
-            scale_factor = (width - 100) / bounding_x
+        else if (bounding_x > width - offfset){
+            scale_factor = (width - offfset) / bounding_x
         }
         else{
-            scale_factor = (height - 100) / bounding_y
+            scale_factor = (height - offfset) / bounding_y
         }
         x1 = x1 * scale_factor
         x2 = x2 * scale_factor
@@ -113,7 +115,6 @@ class PlaygroundViewController: UIViewController {
         y1 += diffy
         y2 += diffy
         y3 += diffy
-        print(x1, x3)
         drawTriangle()
     }
 
