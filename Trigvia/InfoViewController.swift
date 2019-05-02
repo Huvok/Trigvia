@@ -10,13 +10,16 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    @IBOutlet weak var tContainerView: UIView!
+    
+    @IBOutlet weak var btnReinitApp: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tContainerView.layer.cornerRadius=8
+        btnReinitApp.layer.cornerRadius=8
         // Do any additional setup after loading the view.
     }
-    
-
     /*
     // MARK: - Navigation
 

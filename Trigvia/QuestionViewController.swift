@@ -29,6 +29,8 @@ class QuestionViewController : UIViewController {
     var intAnswerBtn : Int = 0
     var arrSolved : NSMutableArray = []
     
+    @IBOutlet weak var questionContainerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let path = Bundle.main.path(forResource: "Questions", ofType: "plist")!
@@ -37,6 +39,9 @@ class QuestionViewController : UIViewController {
         
         let dificultadPList : NSDictionary!
         dificultadPList = dicPList[difficulty] as? NSDictionary
+        
+        questionContainerView.layer.cornerRadius = 8
+        btnNextQ.layer.cornerRadius = 8
         
         for (key, _) in dificultadPList {
             let k = key as! String
@@ -57,8 +62,9 @@ class QuestionViewController : UIViewController {
         if FileManager.default.fileExists(atPath: filePath) {
             arrSolved = NSMutableArray(contentsOfFile: filePath)!
         }
-        
-        nextQuestion()
+        if arrQuestions.count > 1{
+            nextQuestion()
+        }
     }
     
     func dataPath() -> String {
