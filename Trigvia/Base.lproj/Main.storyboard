@@ -358,12 +358,12 @@
                         <outlet property="btnSolve" destination="mfr-Xb-7XG" id="4NA-Pj-Lt7"/>
                         <outlet property="containerView" destination="Jt5-iv-Fer" id="E7f-6T-UZh"/>
                         <outlet property="scrollView" destination="qdx-uA-7Ny" id="U7y-pv-aZP"/>
-                        <outletCollection property="tfSides" destination="FSR-Yd-jLx" collectionClass="NSMutableArray" id="7Su-4b-i7D"/>
-                        <outletCollection property="tfSides" destination="sG3-qX-qrY" collectionClass="NSMutableArray" id="EFJ-hq-EgO"/>
-                        <outletCollection property="tfSides" destination="Wvl-JZ-3Be" collectionClass="NSMutableArray" id="13F-aJ-b5J"/>
                         <outletCollection property="tfAngles" destination="5lH-xu-vfw" collectionClass="NSMutableArray" id="GBE-hg-yw4"/>
                         <outletCollection property="tfAngles" destination="QVG-sf-ay4" collectionClass="NSMutableArray" id="FZc-vf-1kp"/>
                         <outletCollection property="tfAngles" destination="74w-oJ-7UE" collectionClass="NSMutableArray" id="b4w-FM-cDZ"/>
+                        <outletCollection property="tfSides" destination="sG3-qX-qrY" collectionClass="NSMutableArray" id="1rh-OZ-A5i"/>
+                        <outletCollection property="tfSides" destination="FSR-Yd-jLx" collectionClass="NSMutableArray" id="Xsz-bT-HqH"/>
+                        <outletCollection property="tfSides" destination="Wvl-JZ-3Be" collectionClass="NSMutableArray" id="B6K-ny-y70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PQ-IG-1fA" userLabel="First Responder" sceneMemberID="firstResponder"/>
