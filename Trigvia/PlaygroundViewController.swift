@@ -10,19 +10,19 @@ import UIKit
 
 class PlaygroundViewController: UIViewController {
     
-    var dAngle1 : Double = 29.45*Double.pi/180
-    var dAngle2 : Double = 130.67*Double.pi/180
-    var dAngle3 : Double = 19.88*Double.pi/180
-    var dSide1 : Double = 9.4
-    var dSide2 : Double = 14.5
-    var dSide3 : Double = 6.5
+    var dAngle1 : Double = 60*Double.pi/180
+    var dAngle2 : Double = 60*Double.pi/180
+    var dAngle3 : Double = 60*Double.pi/180
+    var dSide1 : Double = 10
+    var dSide2 : Double = 10
+    var dSide3 : Double = 10
     
     var x1: Double = 0.0
     var y1: Double = 0.0
     var x2: Double = 0.0
-    var y2: Double = 90.0
-    var x3: Double = 90.0
-    var y3: Double = 90.0
+    var y2: Double = 0.0
+    var x3: Double = 0.0
+    var y3: Double = 0.0
     
     var width : Double = 0.0
     var height : Double = 0.0
@@ -35,11 +35,13 @@ class PlaygroundViewController: UIViewController {
     @IBOutlet weak var lbb: UILabel!
     @IBOutlet weak var lbc: UILabel!
     @IBOutlet weak var viewData: UIView!
+    @IBOutlet weak var returnBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewData.layer.cornerRadius = 8
         viewData.clipsToBounds = true
+        returnBtn.layer.cornerRadius = 8
 
     }
     
@@ -50,46 +52,60 @@ class PlaygroundViewController: UIViewController {
         dSide3 *= 100
         width = Double(bezierView.bounds.width)
         height = Double(bezierView.bounds.height)
-        let maxSize = min(width, height) - 80
-        let maxSide = max(dSide1, dSide3, dSide3)
-        if maxSide > maxSize{
-            if (maxSide == dSide1){
-                dSide2 = dSide2*maxSize/dSide1
-                dSide3 = dSide3*maxSize/dSide1
-                dSide1 = maxSize
-            }else if(maxSide == dSide2){
-                dSide1 = dSide1*maxSize/dSide1
-                dSide3 = dSide3*maxSize/dSide1
-                dSide2 = maxSize
-            }else{
-                dSide1 = dSide1*maxSize/dSide1
-                dSide2 = dSide2*maxSize/dSide1
-                dSide3 = maxSize
-            }
-        }
-        print(dAngle1, dAngle2, dAngle3, Double.pi/4)
-        if (dAngle2 == Double.pi/2){
-            x1 = 0
-            y1 = -dSide3
-        }else if (dAngle2 < Double.pi/4){
-            x1 = dSide3*sin(dAngle1/2)
-            y1 = -dSide3*sin(dAngle2)
-        }else{
+        if (dAngle2 > Double.pi/2){
             x1 = -dSide3*sin(dAngle2 - Double.pi/2)
             y1 = -dSide3*sin(Double.pi - dAngle2)
+        }else if (dAngle2 < Double.pi/2){
+            if (dAngle3 > Double.pi/2){
+                x1 = dSide1 + dSide2*sin(dAngle3 - Double.pi/2)
+                y1 = -dSide2*sin(Double.pi - dAngle3)
+            }else if (dAngle3 < Double.pi/2){
+                x1 = dSide3*sin(dAngle1/2)
+                y1 = -dSide3*sin(dAngle2)
+            } else {
+                x1 = dSide1
+                y1 = -dSide2
+            }
+        }else{
+            x1 = 0
+            y1 = -dSide3
         }
         x2 = 0
         y2 = 0
         x3 = dSide1
         y3 = 0
-        let centroid_x = width/2 - (x1 + x2 + x3)/3
-        let centroid_y = height/2 - (y1 + y2 + y3)/3
-        x1 += centroid_x
-        x2 += centroid_x
-        x3 += centroid_x
-        y1 += centroid_y
-        y2 += centroid_y
-        y3 += centroid_y
+        let centroid_x = (x1 + x3)/3
+        let centroid_y = y1/3
+        x1 -= centroid_x
+        x2 -= centroid_x
+        x3 -= centroid_x
+        y1 -= centroid_y
+        y2 -= centroid_y
+        y3 -= centroid_y
+        let bounding_x = max(x1, x2, x3) - min(x1, x2 , x3)
+        let bounding_y = max(y1, y2, y3) - min(y1, y2 , y3)
+        var scale_factor = 1.0
+        if (bounding_x > width - 100 && bounding_y > height - 100){
+            if bounding_x > bounding_y {
+                scale_factor = (width - 100) / bounding_x
+            }
+            else{
+                scale_factor = (height - 100) /  bounding_y
+            }
+        }
+        else if (bounding_x > width - 100){
+            scale_factor = (width - 100) / bounding_x
+        }
+        else{
+            scale_factor = (height - 100) / bounding_y
+        }
+        x1 = x1 * scale_factor + width/2
+        x2 = x2 * scale_factor + width/2
+        x3 = x3 * scale_factor + width/2
+        y1 = y1 * scale_factor + height/2
+        y2 = y2 * scale_factor + height/2
+        y3 = y3 * scale_factor + height/2
+        print(x1, x3)
         drawTriangle()
     }
 

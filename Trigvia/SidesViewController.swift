@@ -9,13 +9,17 @@
 import UIKit
 import iosMath
 
-class SidesViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class SidesViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate  {
 
     @IBOutlet var tfSides: [UITextField]!
     @IBOutlet var tfAngles: [UITextField]!
     
     @IBOutlet weak var btnContinue: UIButton!
     @IBOutlet weak var btnSolve: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var btnReturn: UIButton!
+    
+    var activeField : UITextField!
     
     var angles = [Double?](repeating: nil, count: 3)
     var sides = [Double?](repeating: nil, count: 3)
@@ -37,9 +41,69 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                                 "Si ninguna medida de un ángulo ha sido introducida, se deben dar medidas para todos los lados",
                                 "Si sólo has introducido un ángulo, debes introducir al menos 2 lados"]
     
+    @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        containerView.layer.cornerRadius = 8
+        containerView.clipsToBounds = true
+        btnReturn.layer.cornerRadius = 8
+        btnSolve.layer.cornerRadius = 8
+        tfSides[0].delegate = self
+        tfSides[1].delegate = self
+        tfSides[2].delegate = self
+        tfAngles[0].delegate = self
+        tfAngles[1].delegate = self
+        tfAngles[2].delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(quitaTeclado))
+        self.view.addGestureRecognizer(tap)
+        self.registrarseParaNotificacionesDeTeclado()
     }
+    
+    @IBAction func quitaTeclado() {
+        view.endEditing(true)
+    }
+    
+    func registrarseParaNotificacionesDeTeclado() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(aNotification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(aNotification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @IBAction func keyboardWasShown(aNotification : NSNotification) {
+        
+        let kbSize = (aNotification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
+        
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+        
+        // If active text field is hidden by keyboard, scroll it so it's visible
+        // Your app might not need or want this behavior.
+        var aRect: CGRect = scrollView.frame
+        aRect.size.height -= kbSize.height
+        if !aRect.contains(activeField.frame.origin) {
+            scrollView.scrollRectToVisible(activeField.frame, animated: true)
+        }
+    }
+    
+    @IBAction func keyboardWillBeHidden(aNotification : NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+    }
+    
     
     func clearData() {
         angles = [Double?](repeating: nil, count: 3)
@@ -324,28 +388,21 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "popOverSegue" {
+        if identifier == "popOverSegue" ||
+            identifier == "playgroundSegue" {
             clearData()
             if validateInput() {
                 addCurrentMeasuresToSolutionSteps()
                 iterateSumOfAngles()
                 if validateTriangleMeasures() {
                     solveMeasures()
-                }
-                else {
-                    clearData()
-                    return false
+                    return true
                 }
             }
-            else{
-                clearData()
-                return false
-            }
-            return true
+            clearData()
+            return false
         }
-        else {
-            return true
-        }
+        return true
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -353,6 +410,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        quitaTeclado()
         if segue.identifier == "popOverSegue" {
             let popOverView = segue.destination as! SolutionPopOverViewController
             popOverView.popoverPresentationController?.delegate = self
@@ -364,9 +422,9 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         }
         else if segue.identifier == "playgroundSegue" {
             let playgroundView = segue.destination as! PlaygroundViewController
-            playgroundView.dAngle1 = angles[0]!
-            playgroundView.dAngle2 = angles[1]!
-            playgroundView.dAngle3 = angles[2]!
+            playgroundView.dAngle1 = angles[0]!*Double.pi/180
+            playgroundView.dAngle2 = angles[1]!*Double.pi/180
+            playgroundView.dAngle3 = angles[2]!*Double.pi/180
             playgroundView.dSide1 = sides[0]!
             playgroundView.dSide2 = sides[1]!
             playgroundView.dSide3 = sides[2]!
