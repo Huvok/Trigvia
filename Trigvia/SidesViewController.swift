@@ -330,6 +330,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         let sidesProvided = countProvidedMeasures(arr: sides)
         switch anglesProvided {
         case 0:
+            print("All Sides")
             // must provide every side
             if sidesProvided == 3 {
                 if !validateTriangleInequality() {
@@ -342,12 +343,17 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 return false
             }
         case 1:
+            print("Two Sides")
             // must provide at least 2 sides
             if sidesProvided <= 1 {
                 showAlert(message: ERROR_MESSAGES_SIDES[2])
                 return false
             }
             else{
+                if sidesProvided == 3{
+                    showAlert(message: ERROR_MESSAGES[2])
+                    return false
+                }
                 solveMeasures()
                 if !validateSumOfAngles() || !validateTriangleInequality() {
                     showAlert(message: ERROR_MESSAGES[2])
@@ -355,7 +361,12 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 }
             }
         default:
-            if !validateLawOfSines() {
+            print("One side")
+            if sidesProvided != 1 {
+                showAlert(message: ERROR_MESSAGES[2])
+                return false
+            }
+            if !validateLawOfSines() || !validateSumOfAngles(){
                 showAlert(message: ERROR_MESSAGES[2])
                 return false
             }
@@ -395,6 +406,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 addCurrentMeasuresToSolutionSteps()
                 iterateSumOfAngles()
                 if validateTriangleMeasures() {
+                    print("valid")
                     solveMeasures()
                     return true
                 }
