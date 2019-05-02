@@ -99,12 +99,20 @@ class PlaygroundViewController: UIViewController {
         else{
             scale_factor = (height - 100) / bounding_y
         }
-        x1 = x1 * scale_factor + width/2
-        x2 = x2 * scale_factor + width/2
-        x3 = x3 * scale_factor + width/2
-        y1 = y1 * scale_factor + height/2
-        y2 = y2 * scale_factor + height/2
-        y3 = y3 * scale_factor + height/2
+        x1 = x1 * scale_factor
+        x2 = x2 * scale_factor
+        x3 = x3 * scale_factor
+        y1 = y1 * scale_factor
+        y2 = y2 * scale_factor
+        y3 = y3 * scale_factor
+        let diffx = (width - (max(x1, x2, x3) - min(x1, x2 , x3)))/2 - min(x1, x2 , x3)
+        let diffy = (width - (max(y1, y2, y3) - min(y1, y2 , y3)))/2 - min(y1, y2 , y3)
+        x1 += diffx
+        x2 += diffx
+        x3 += diffx
+        y1 += diffy
+        y2 += diffy
+        y3 += diffy
         print(x1, x3)
         drawTriangle()
     }
