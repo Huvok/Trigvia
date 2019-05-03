@@ -28,6 +28,7 @@ class QuestionViewController : UIViewController {
     var intCurrentQuestion : Int = 0
     var intAnswerBtn : Int = 0
     var arrSolved : NSMutableArray = []
+    var intQuestionIndex : Int = 0
     
     @IBOutlet weak var questionContainerView: UIView!
     
@@ -43,6 +44,11 @@ class QuestionViewController : UIViewController {
         questionContainerView.layer.cornerRadius = 8
         btnNextQ.layer.cornerRadius = 8
         
+        let filePath = dataPath()
+        if FileManager.default.fileExists(atPath: filePath) {
+            arrSolved = NSMutableArray(contentsOfFile: filePath)!
+        }
+        
         for (key, _) in dificultadPList {
             let k = key as! String
             
@@ -52,18 +58,32 @@ class QuestionViewController : UIViewController {
             for i in 0...arr.count - 1 {
                 let dic : NSDictionary!
                 dic = arr[i] as? NSDictionary
-                arrQuestions.append(Question(id: dic["id"] as! Int, strTopic: key as! String, strQuestion: dic["pregunta"] as! String, strAnswer: dic["respuesta"] as! String, arrStrWA: dic["incorrectas"] as! [String]))
+                var flag = true
+                if arrSolved.count > 0 {
+                    for j in 0...arrSolved.count - 1 {
+                        if dic["id"] as! Int == arrSolved[j] as! Int {
+                            flag = false
+                        }
+                    }
+                }
+                
+                if flag {
+                    arrQuestions.append(Question(id: dic["id"] as! Int, strTopic: key as! String, strQuestion: dic["pregunta"] as! String, strAnswer: dic["respuesta"] as! String, arrStrWA: dic["incorrectas"] as! [String]))
+                }
             }
         }
         
         lbDifficulty.text = difficulty
         
-        let filePath = dataPath()
-        if FileManager.default.fileExists(atPath: filePath) {
-            arrSolved = NSMutableArray(contentsOfFile: filePath)!
-        }
         if arrQuestions.count > 1{
             nextQuestion()
+        }
+        else {
+            let alert = UIAlertController(title: "Terminaste este nivel", message: "No hay mas preguntas disponibles", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(accion)
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -74,6 +94,10 @@ class QuestionViewController : UIViewController {
     }
     
     func nextQuestion() {
+        btnOption1.isEnabled = true
+        btnOption2.isEnabled = true
+        btnOption3.isEnabled = true
+        btnOption4.isEnabled = true
         btnOption1.backgroundColor = .lightGray
         btnOption2.backgroundColor = .lightGray
         btnOption3.backgroundColor = .lightGray
@@ -81,6 +105,7 @@ class QuestionViewController : UIViewController {
         btnNextQ.isHidden = true
         
         let rnd = Int.random(in: 0...arrQuestions.count - 1)
+        intQuestionIndex = rnd
         intCurrentQuestion = arrQuestions[rnd].id
         
         lbTopic.text = arrQuestions[rnd].strTopic
@@ -132,14 +157,11 @@ class QuestionViewController : UIViewController {
         if intAnswerBtn == 1 {
             accepted()
             btnOption1.backgroundColor = .green
-            btnOption1.isEnabled = true
-            btnOption2.isEnabled = true
-            btnOption3.isEnabled = true
-            btnOption4.isEnabled = true
         }
         else {
             wrongAnswer()
             btnOption1.backgroundColor = .red
+            btnOption1.isEnabled = false
         }
     }
     
@@ -151,6 +173,7 @@ class QuestionViewController : UIViewController {
         else {
             wrongAnswer()
             btnOption2.backgroundColor = .red
+            btnOption2.isEnabled = false
         }
     }
     
@@ -162,6 +185,7 @@ class QuestionViewController : UIViewController {
         else {
             wrongAnswer()
             btnOption3.backgroundColor = .red
+            btnOption3.isEnabled = false
         }
     }
     
@@ -173,6 +197,7 @@ class QuestionViewController : UIViewController {
         else {
             wrongAnswer()
             btnOption4.backgroundColor = .red
+            btnOption4.isEnabled = false
         }
     }
     
@@ -190,6 +215,7 @@ class QuestionViewController : UIViewController {
         btnNextQ.isHidden = false
         
         arrSolved.add(intCurrentQuestion)
+        arrQuestions.remove(at: intQuestionIndex)
         arrSolved.write(toFile: dataPath(), atomically: true)
     }
     
@@ -204,9 +230,5 @@ class QuestionViewController : UIViewController {
     
     @IBAction func btnNextQuestion(_ sender: Any) {
         nextQuestion()
-        btnOption1.isEnabled = true
-        btnOption2.isEnabled = true
-        btnOption3.isEnabled = true
-        btnOption4.isEnabled = true
     }
 }
