@@ -241,8 +241,8 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOz-Cd-xbZ">
-                                                        <rect key="frame" x="101" y="15" width="156" height="62"/>
-                                                        <state key="normal" title="Button" image="triang"/>
+                                                        <rect key="frame" x="114" y="2" width="130" height="75"/>
+                                                        <state key="normal" title="Button" image="triangle"/>
                                                         <connections>
                                                             <segue destination="Mih-Gk-h3f" kind="show" identifier="playgroundSegue" id="mOC-ac-ooQ"/>
                                                         </connections>
@@ -251,15 +251,13 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="sG3-qX-qrY" firstAttribute="height" secondItem="FSR-Yd-jLx" secondAttribute="height" id="0Ib-Gr-kvV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HOz-Cd-xbZ" secondAttribute="trailing" constant="115" id="1gm-DS-2xD"/>
                                                     <constraint firstItem="mVp-j3-iPM" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="4eo-ad-Kh2"/>
-                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="101" id="97Q-uE-cnE"/>
-                                                    <constraint firstItem="7LR-sj-wLu" firstAttribute="top" secondItem="HOz-Cd-xbZ" secondAttribute="bottom" constant="8" id="9pX-bB-UT4"/>
                                                     <constraint firstItem="5Wp-Ni-iQL" firstAttribute="top" secondItem="dXh-GQ-ULA" secondAttribute="bottom" constant="18" id="9rg-1q-zVs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HOz-Cd-xbZ" secondAttribute="trailing" constant="102" id="AiN-LP-KgK"/>
                                                     <constraint firstItem="Wrc-jr-Guo" firstAttribute="height" secondItem="h2X-NO-UZV" secondAttribute="height" id="Baz-Fv-flQ"/>
-                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="top" secondItem="Jt5-iv-Fer" secondAttribute="top" constant="15" id="BrV-eV-hfa"/>
                                                     <constraint firstItem="dXh-GQ-ULA" firstAttribute="height" secondItem="5Wp-Ni-iQL" secondAttribute="height" id="FVy-OB-Nmt"/>
                                                     <constraint firstItem="QVG-sf-ay4" firstAttribute="height" secondItem="74w-oJ-7UE" secondAttribute="height" id="Gx3-XI-fNE"/>
+                                                    <constraint firstItem="7LR-sj-wLu" firstAttribute="top" secondItem="HOz-Cd-xbZ" secondAttribute="bottom" constant="8" id="IEl-6j-kSh"/>
                                                     <constraint firstItem="Wvl-JZ-3Be" firstAttribute="top" secondItem="FSR-Yd-jLx" secondAttribute="bottom" constant="8" id="IUv-Lr-9P8"/>
                                                     <constraint firstItem="7GD-T0-gce" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="11" id="KFR-vg-HaQ"/>
                                                     <constraint firstItem="Wvl-JZ-3Be" firstAttribute="leading" secondItem="mVp-j3-iPM" secondAttribute="trailing" constant="37" id="Lew-TE-a67"/>
@@ -270,6 +268,7 @@
                                                     <constraint firstItem="h2X-NO-UZV" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="Sjl-tB-ZjZ"/>
                                                     <constraint firstItem="sG3-qX-qrY" firstAttribute="top" secondItem="7LR-sj-wLu" secondAttribute="bottom" constant="7.3300000000000001" id="T42-j4-H6Z"/>
                                                     <constraint firstItem="Wvl-JZ-3Be" firstAttribute="height" secondItem="5lH-xu-vfw" secondAttribute="height" id="ToJ-eB-H1o"/>
+                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="top" secondItem="Jt5-iv-Fer" secondAttribute="top" constant="2" id="UnR-wi-fM8"/>
                                                     <constraint firstItem="7LR-sj-wLu" firstAttribute="top" secondItem="Jt5-iv-Fer" secondAttribute="top" constant="85" id="XaP-Ll-bIe"/>
                                                     <constraint firstItem="WMc-nZ-Txa" firstAttribute="top" secondItem="5Wp-Ni-iQL" secondAttribute="bottom" constant="17" id="XmT-CH-1fD"/>
                                                     <constraint firstAttribute="bottom" secondItem="WMc-nZ-Txa" secondAttribute="bottom" constant="24" id="Xy9-Os-7Dd"/>
@@ -298,6 +297,7 @@
                                                     <constraint firstItem="7LR-sj-wLu" firstAttribute="height" secondItem="7GD-T0-gce" secondAttribute="height" id="uef-ny-5cx"/>
                                                     <constraint firstItem="WMc-nZ-Txa" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="vaE-T7-Yzy"/>
                                                     <constraint firstAttribute="trailing" secondItem="7GD-T0-gce" secondAttribute="trailing" constant="11.5" id="vch-5a-lsB"/>
+                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="114" id="xjT-Lb-WtM"/>
                                                     <constraint firstAttribute="trailing" secondItem="Wvl-JZ-3Be" secondAttribute="trailing" constant="70" id="xpq-so-Ato"/>
                                                     <constraint firstAttribute="trailing" secondItem="FSR-Yd-jLx" secondAttribute="trailing" constant="70" id="y7l-zo-hWH"/>
                                                     <constraint firstItem="7LR-sj-wLu" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="11" id="yCV-7X-1lp"/>
@@ -343,7 +343,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84229627669999996" blue="0.93916717149999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.81751543280000005" blue="0.7994543314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qdx-uA-7Ny" firstAttribute="trailing" secondItem="lED-mI-U2D" secondAttribute="trailing" id="Fwy-0J-oX7"/>
                             <constraint firstItem="qdx-uA-7Ny" firstAttribute="leading" secondItem="lED-mI-U2D" secondAttribute="leading" id="KUf-dk-0OO"/>
@@ -369,7 +369,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PQ-IG-1fA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sy7-Ra-5t6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="963.75" y="624.29577464788736"/>
+            <point key="canvasLocation" x="961.875" y="623.23943661971828"/>
         </scene>
         <!--Solution Pop Over View Controller-->
         <scene sceneID="xH6-6q-qYD">
@@ -400,7 +400,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7y-Rc-iWV">
                                         <rect key="frame" x="8" y="8" width="342" height="467"/>
-                                        <mutableString key="text">Trigvia ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por los maestros Yolanda Martínez Treviño e Irving Hidrogo Montemayor.
+                                        <string key="text">Trigvia ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por los maestros Yolanda Martínez Treviño e Irving Hidrogo Montemayor.
  
 Desarrolladores:
 Juan Pablo Galaz Chávez
@@ -414,7 +414,7 @@ Gonzalo José Vicuña Maldonado
 José Andrés Villarreal Jaime
 Diego Ceceña
 
-Trigvia se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</mutableString>
+Trigvia se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -936,6 +936,6 @@ Trigvia se distribuye como está de manera gratuita y se prohíbe su distribuci�
         </scene>
     </scenes>
     <resources>
-        <image name="triang" width="460" height="254"/>
+        <image name="triangle" width="360" height="360"/>
     </resources>
 </document>

@@ -189,7 +189,24 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         var usedRatioIdx = false
         for i in 0...2 {
             if ratio != nil && sides[i] != nil && angles[i] == nil {
-                angles[i] = radiansToDegrees(radians: asin(ratio! * sides[i]!))
+                if sides[0] != nil && sides[1] != nil && sides[2] != nil{
+                    if i == 0 {
+                        // A = acos((c^2 + b^2 - a^2)/ 2cb)
+                        let num = pow(sides[2]!, 2) + pow(sides[1]!, 2) - pow(sides[0]!, 2)
+                        angles[0] = acos(num / (2.0 * sides[2]! * sides[1]!))
+                    }else if i == 1{
+                        // let angleB = acos((sidea * sidea + sidec * sidec - sideb * sideb) / (2.0 * sidea * sidec))
+                        let num = pow(sides[0]!, 2) + pow(sides[2]!, 2) - pow(sides[1]!, 2)
+                        angles[1] = acos(num / (2.0 * sides[0]! * sides[2]!))
+                    }else{
+                        // C = acos((a^2 + b^2 - c^2)/2ab)
+                        let num = pow(sides[0]!, 2) + pow(sides[1]!, 2) - pow(sides[2]!, 2)
+                        angles[2] = acos(num / (2.0 * sides[0]! * sides[1]!))
+                    }
+                    angles[i] = radiansToDegrees(radians: angles[i]!)
+                }else{
+                    angles[i] = radiansToDegrees(radians: asin(ratio! * sides[i]!))
+                }
                 if(!usedRatioIdx){
                     solutionSteps.append("\\text{Dado que}\\\\ \\frac{sin(\(anglesNames[idxOfRatio]))}{\(sideNames[idxOfRatio])}=\(numToStr(num: ratio))\\\\ ")
                     usedRatioIdx = true
@@ -320,7 +337,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             showAlert(message: ERROR_MESSAGES[1])
             return false
         }
-        
         return true
     }
     
@@ -330,8 +346,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         let sidesProvided = countProvidedMeasures(arr: sides)
         switch anglesProvided {
         case 0:
-            print("All Sides")
-            // must provide every side
             if sidesProvided == 3 {
                 if !validateTriangleInequality() {
                     showAlert(message: ERROR_MESSAGES_SIDES[0])
@@ -343,8 +357,8 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 return false
             }
         case 1:
-            print("Two Sides")
             // must provide at least 2 sides
+            print("2 sides")
             if sidesProvided <= 1 {
                 showAlert(message: ERROR_MESSAGES_SIDES[2])
                 return false
@@ -361,7 +375,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 }
             }
         default:
-            print("One side")
             if sidesProvided != 1 {
                 showAlert(message: ERROR_MESSAGES[2])
                 return false
@@ -433,13 +446,12 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         }
         else if segue.identifier == "playgroundSegue" {
             let playgroundView = segue.destination as! PlaygroundViewController
-            playgroundView.dAngle1 = angles[0]!*Double.pi/180
-            playgroundView.dAngle2 = angles[1]!*Double.pi/180
-            playgroundView.dAngle3 = angles[2]!*Double.pi/180
+            playgroundView.dAngle1 = angles[0]!
+            playgroundView.dAngle2 = angles[1]!
+            playgroundView.dAngle3 = angles[2]!
             playgroundView.dSide1 = sides[0]!
             playgroundView.dSide2 = sides[1]!
             playgroundView.dSide3 = sides[2]!
-            print(sides, angles[0]!*Double.pi/180, angles[1]!*Double.pi/180, angles[2]!*Double.pi/180)
         }
     }
 }

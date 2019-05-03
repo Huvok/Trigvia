@@ -26,6 +26,7 @@ class PlaygroundViewController: UIViewController {
     
     var width : Double = 0.0
     var height : Double = 0.0
+    var scale_factor = 1.0
     
     @IBOutlet var bezierView: BezierView!
     @IBOutlet weak var lbA: UILabel!
@@ -42,27 +43,20 @@ class PlaygroundViewController: UIViewController {
         viewData.layer.cornerRadius = 8
         viewData.clipsToBounds = true
         returnBtn.layer.cornerRadius = 8
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        dSide1 *= 100
-        dSide2 *= 100
-        dSide3 *= 100
-        width = Double(bezierView.bounds.width)
-        height = Double(bezierView.bounds.height)
-        print(width, height)
-        if (dAngle2 > Double.pi/2){
-            x1 = -dSide3*sin(dAngle2 - Double.pi/2)
-            y1 = -dSide3*sin(Double.pi - dAngle2)
-        }else if (dAngle2 < Double.pi/2){
-            if (dAngle3 > Double.pi/2){
-                x1 = dSide1 + dSide2*sin(dAngle3 - Double.pi/2)
-                y1 = -dSide2*sin(Double.pi - dAngle3)
-            }else if (dAngle3 < Double.pi/2){
-                x1 = dSide3*sin(dAngle1/2)
-                y1 = -dSide3*sin(dAngle2)
+    func calcCoordinates(){
+        if (dAngle2 > 90){
+            //32 48 24
+            x1 = -dSide3*sin((dAngle2 - 90)*Double.pi/180)
+            y1 = -dSide3*sin((180 - dAngle2)*Double.pi/180)
+        }else if (dAngle2 < 90){
+            if (dAngle3 > 90){
+                x1 = dSide1 + dSide2*sin((dAngle3 - 90)*Double.pi/180)
+                y1 = -dSide2*sin((180 - dAngle3)*Double.pi/180)
+            }else if (dAngle3 < 90){
+                x1 = dSide3*sin((90 - dAngle2)*Double.pi/180)
+                y1 = -dSide3*sin(dAngle2*Double.pi/180)
             } else {
                 x1 = dSide1
                 y1 = -dSide2
@@ -75,6 +69,24 @@ class PlaygroundViewController: UIViewController {
         y2 = 0
         x3 = dSide1
         y3 = 0
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        width = Double(bezierView.bounds.width)
+        height = Double(bezierView.bounds.height)
+        calcCoordinates()
+        let bounding_x = max(x1, x2, x3) - min(x1, x2 , x3)
+        let bounding_y = max(y1, y2, y3) - min(y1, y2 , y3)
+        let diff = 0.5
+        if bounding_x > bounding_y{
+            scale_factor = (width - width*diff)/bounding_x
+        }else{
+            scale_factor = (height - height*diff)/bounding_y
+        }
+        dSide1 *= scale_factor
+        dSide2 *= scale_factor
+        dSide3 *= scale_factor
+        calcCoordinates()
         let centroid_x = (x1 + x3)/3
         let centroid_y = y1/3
         x1 -= centroid_x
@@ -83,30 +95,6 @@ class PlaygroundViewController: UIViewController {
         y1 -= centroid_y
         y2 -= centroid_y
         y3 -= centroid_y
-        let bounding_x = max(x1, x2, x3) - min(x1, x2 , x3)
-        let bounding_y = max(y1, y2, y3) - min(y1, y2 , y3)
-        var scale_factor = 1.0
-        let offfset = width*0.4
-        if (bounding_x > width - offfset && bounding_y > height - offfset){
-            if bounding_x > bounding_y {
-                scale_factor = (width - offfset) / bounding_x
-            }
-            else{
-                scale_factor = (height - offfset) /  bounding_y
-            }
-        }
-        else if (bounding_x > width - offfset){
-            scale_factor = (width - offfset) / bounding_x
-        }
-        else{
-            scale_factor = (height - offfset) / bounding_y
-        }
-        x1 = x1 * scale_factor
-        x2 = x2 * scale_factor
-        x3 = x3 * scale_factor
-        y1 = y1 * scale_factor
-        y2 = y2 * scale_factor
-        y3 = y3 * scale_factor
         let diffx = (width - (max(x1, x2, x3) - min(x1, x2 , x3)))/2 - min(x1, x2 , x3)
         let diffy = (width - (max(y1, y2, y3) - min(y1, y2 , y3)))/2 - min(y1, y2 , y3)
         x1 += diffx
@@ -163,18 +151,16 @@ class PlaygroundViewController: UIViewController {
                                   _x2: x2, _y2: y2,
                                   _x3: x3, _y3: y3)
         self.view.addSubview(bezierView)
-        
-        
         //let sidea = sqrt((x2 - x3)*(x2 - x3) + (y2 - y3)*(y2 - y3))
-        let sidea = Double(round(5*euclidean(x1 : x2, y1: y2, x2: x3, y2: y3))/100)
+        let sidea = Double(euclidean(x1 : x2, y1: y2, x2: x3, y2: y3))
         //let sideb = sqrt((x3 - x1)*(x3 - x1) + (y3 - y1)*(y3 - y1))
-        let sideb = Double(round(5*euclidean(x1 : x3, y1: y3, x2: x1, y2: y1))/100)
+        let sideb = Double(euclidean(x1 : x3, y1: y3, x2: x1, y2: y1))
         //let sidec = sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2))
-        let sidec = Double(round(5*euclidean(x1 : x1, y1: y1, x2: x2, y2: y2))/100)
+        let sidec = Double(euclidean(x1 : x1, y1: y1, x2: x2, y2: y2))
         
-        lba.text! = String(format:"%.2f", sidea)
-        lbb.text! = String(format:"%.2f", sideb)
-        lbc.text! = String(format:"%.2f", sidec)
+        lba.text! = String(format:"%.2f", sidea/scale_factor)
+        lbb.text! = String(format:"%.2f", sideb/scale_factor)
+        lbc.text! = String(format:"%.2f", sidec/scale_factor)
         
         let angleC = acos((sidea * sidea + sideb * sideb - sidec * sidec) / (2.0 * sidea * sideb))
         let angleB = acos((sidea * sidea + sidec * sidec - sideb * sideb) / (2.0 * sidea * sidec))
