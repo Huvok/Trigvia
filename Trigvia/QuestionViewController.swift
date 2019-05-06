@@ -15,6 +15,7 @@ class QuestionViewController : UIViewController {
     @IBOutlet weak var lbTopic: UILabel!
     @IBOutlet weak var lbQuestion: UILabel!
     
+    @IBOutlet weak var imgFigure: UIImageView!
     @IBOutlet weak var btnOption1: UIButton!
     @IBOutlet weak var btnOption2: UIButton!
     @IBOutlet weak var btnOption3: UIButton!
@@ -75,7 +76,7 @@ class QuestionViewController : UIViewController {
         
         lbDifficulty.text = difficulty
         
-        if arrQuestions.count > 1{
+        if arrQuestions.count > 0 {
             nextQuestion()
         }
         else {
@@ -93,63 +94,80 @@ class QuestionViewController : UIViewController {
         return pathArchivo.path
     }
     
+    func loadImg() {
+        let img = UIImage(named: String(describing: arrQuestions[intQuestionIndex].id) + ".png")
+        imgFigure.image = img
+    }
+    
     func nextQuestion() {
-        btnOption1.isEnabled = true
-        btnOption2.isEnabled = true
-        btnOption3.isEnabled = true
-        btnOption4.isEnabled = true
-        btnOption1.backgroundColor = .lightGray
-        btnOption2.backgroundColor = .lightGray
-        btnOption3.backgroundColor = .lightGray
-        btnOption4.backgroundColor = .lightGray
-        btnNextQ.isHidden = true
         
-        let rnd = Int.random(in: 0...arrQuestions.count - 1)
-        intQuestionIndex = rnd
-        intCurrentQuestion = arrQuestions[rnd].id
-        
-        lbTopic.text = arrQuestions[rnd].strTopic
-        lbQuestion.text = arrQuestions[rnd].strQuestion
-        
-        var rndBtn = [Int]()
-        rndBtn.append(contentsOf: 1...4)
-        
-        var cnt : Int = 0
-        while rndBtn.count > 1 {
-            let auxRnd = Int.random(in: 0...rndBtn.count - 1)
+        if arrQuestions.count > 0 {
+            btnOption1.isEnabled = true
+            btnOption2.isEnabled = true
+            btnOption3.isEnabled = true
+            btnOption4.isEnabled = true
+            btnOption1.backgroundColor = .lightGray
+            btnOption2.backgroundColor = .lightGray
+            btnOption3.backgroundColor = .lightGray
+            btnOption4.backgroundColor = .lightGray
+            btnNextQ.isHidden = true
             
-            if rndBtn[auxRnd] == 1 {
-                btnOption1.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            let rnd = Int.random(in: 0...arrQuestions.count - 1)
+            intQuestionIndex = rnd
+            intCurrentQuestion = arrQuestions[rnd].id
+            
+            lbTopic.text = arrQuestions[rnd].strTopic
+            lbQuestion.text = arrQuestions[rnd].strQuestion
+            
+            var rndBtn = [Int]()
+            rndBtn.append(contentsOf: 1...4)
+            
+            var cnt : Int = 0
+            while rndBtn.count > 1 {
+                let auxRnd = Int.random(in: 0...rndBtn.count - 1)
+                
+                if rndBtn[auxRnd] == 1 {
+                    btnOption1.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+                }
+                else if rndBtn[auxRnd] == 2 {
+                    btnOption2.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+                }
+                else if rndBtn[auxRnd] == 3 {
+                    btnOption3.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+                }
+                else {
+                    btnOption4.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+                }
+                
+                rndBtn.remove(at: auxRnd)
+                cnt = cnt + 1
             }
-            else if rndBtn[auxRnd] == 2 {
-                btnOption2.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            
+            if rndBtn[0] == 1 {
+                btnOption1.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+                intAnswerBtn = 1
             }
-            else if rndBtn[auxRnd] == 3 {
-                btnOption3.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+            else if rndBtn[0] == 2 {
+                btnOption2.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+                intAnswerBtn = 2
+            }
+            else if rndBtn[0] == 3 {
+                btnOption3.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+                intAnswerBtn = 3
             }
             else {
-                btnOption4.setTitle(arrQuestions[rnd].arrStrWA[cnt], for: .normal)
+                btnOption4.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
+                intAnswerBtn = 4
             }
             
-            rndBtn.remove(at: auxRnd)
-            cnt = cnt + 1
-        }
-        
-        if rndBtn[0] == 1 {
-            btnOption1.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
-            intAnswerBtn = 1
-        }
-        else if rndBtn[0] == 2 {
-            btnOption2.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
-            intAnswerBtn = 2
-        }
-        else if rndBtn[0] == 3 {
-            btnOption3.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
-            intAnswerBtn = 3
+            loadImg()
         }
         else {
-            btnOption4.setTitle(arrQuestions[rnd].strAnswer, for: .normal)
-            intAnswerBtn = 4
+            let alert = UIAlertController(title: "Terminaste este nivel", message: "No hay mas preguntas disponibles", preferredStyle: .alert)
+            let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(accion)
+            present(alert, animated: true, completion: nil)
         }
     }
     
