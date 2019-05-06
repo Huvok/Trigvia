@@ -29,13 +29,14 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
     var anglesNames = ["\\alpha", "\\beta", "\\theta"]
     var sideNames = ["a", "b", "c"]
     
-    let MAX_ERROR_MARGIN = 0.000000001
+    let MAX_ERROR_MARGIN = 0.000001
     
     let ERROR_MESSAGES = ["Alguno de los valores introducidos no es un número",
                           "Alguno de los valores está fuera del rango permitido",
                           "No se pudo construir un triángulo con las medidas proporcionadas"]
     
-    let ERROR_MESSAGES_ANGLES = ["Si introduces 3 ángulos, deben sumar exactamente 180"]
+    let ERROR_MESSAGES_ANGLES = ["Si introduces 3 ángulos, deben sumar exactamente 180",
+                                 "La suma de menos de 3 ángulos, deben ser menor 180"]
     
     let ERROR_MESSAGES_SIDES = ["Las medidas de los lados introducidos no cumplen la desigualdad del triángulo",
                                 "Si ninguna medida de un ángulo ha sido introducida, se deben dar medidas para todos los lados",
@@ -219,7 +220,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                     solutionSteps.append("\\text{Dado que}\\\\ \\frac{sin(\(anglesNames[idxOfRatio]))}{\(sideNames[idxOfRatio])}=\(numToStr(num: ratio))\\\\ ")
                     usedRatioIdx = true
                 }
-                solutionSteps.append("\\text{Por ley de senos,}\\\\ \(sideNames[i])=\\frac{sin(\(anglesNames[i]))}{\(String(format: "%.2f", ratio!))}=\(numToStr(num: sides[i]))\\\\ ")
+                solutionSteps.append("\\text{Por ley de senos,}\\\\ \(sideNames[i])=\\frac{sin(\(anglesNames[i]))}{\(String(format: "%.4f", ratio!))}=\(numToStr(num: sides[i]))\\\\ ")
             }
         }
     }
@@ -282,12 +283,14 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         for i in 0...2 {
             if angles[i] != nil && sides[i] != nil {
                 if ratio != nil {
+                    print(sin(degreesToRadians(degrees: angles[i]!)) / sides[i]!)
                     if !closeCompare(numA: ratio!, numB: sin(degreesToRadians(degrees: angles[i]!)) / sides[i]!) {
                         return false
                     }
                 }
                 else{
                     ratio = sin(degreesToRadians(degrees: angles[i]!)) / sides[i]!
+                    print(ratio)
                 }
             }
         }
@@ -337,6 +340,40 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             showAlert(message: ERROR_MESSAGES[1])
             return false
         }
+        var sum = 0.0
+        for i in 0...2 {
+            if angles[i] != nil {
+                sum = sum + angles[i]!
+            }
+        }
+        let anglesProvided = countProvidedMeasures(arr: angles)
+        if anglesProvided == 3 && !closeCompare(numA: 180.0, numB: sum){
+            showAlert(message: ERROR_MESSAGES_ANGLES[0])
+            return false
+        } else if sum >= 180 && anglesProvided < 3 {
+            showAlert(message: ERROR_MESSAGES_ANGLES[1])
+            return false
+        }
+        return true
+    }
+    
+    func angleInSet(ang: Double) -> Bool {
+        var num = pow(sides[2]!, 2) + pow(sides[1]!, 2) - pow(sides[0]!, 2)
+        var a = acos(num / (2.0 * sides[2]! * sides[1]!))
+        num = pow(sides[0]!, 2) + pow(sides[2]!, 2) - pow(sides[1]!, 2)
+        var b = acos(num / (2.0 * sides[0]! * sides[2]!))
+        num = pow(sides[0]!, 2) + pow(sides[1]!, 2) - pow(sides[2]!, 2)
+        var c = acos(num / (2.0 * sides[0]! * sides[1]!))
+        a = radiansToDegrees(radians: a)
+        b = radiansToDegrees(radians: b)
+        c = radiansToDegrees(radians: c)
+        print(ang, a, b, c)
+        if !closeCompare(numA: a, numB: ang) &&
+            !closeCompare(numA: b, numB: ang) &&
+            !closeCompare(numA: c, numB: ang){
+            showAlert(message: ERROR_MESSAGES[2])
+            return false
+        }
         return true
     }
     
@@ -365,8 +402,19 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             }
             else{
                 if sidesProvided == 3{
-                    showAlert(message: ERROR_MESSAGES[2])
-                    return false
+                    var ang = 0.0
+                    if angles[0] != nil{
+                        ang = angles[0]!
+                    }
+                    else if angles[1] != nil {
+                        ang = angles[1]!
+                    }
+                    else{
+                        ang = angles[2]!
+                    }
+                    if !angleInSet(ang: ang){
+                        return false
+                    }
                 }
                 solveMeasures()
                 if !validateSumOfAngles() || !validateTriangleInequality() {
@@ -375,7 +423,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 }
             }
         default:
-            if sidesProvided != 1 {
+            if sidesProvided == 0 {
                 showAlert(message: ERROR_MESSAGES[2])
                 return false
             }
@@ -418,7 +466,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             if validateInput() {
                 addCurrentMeasuresToSolutionSteps()
                 iterateSumOfAngles()
-                if validateTriangleMeasures() {
+                if validateTriangleMeasures(){
                     solveMeasures()
                     return true
                 }
