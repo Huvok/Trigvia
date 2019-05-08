@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,22 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trigvia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H51-LD-Hnq">
-                                <rect key="frame" x="55" y="254" width="304.66666666666669" height="71"/>
+                                <rect key="frame" x="55" y="230" width="210.5" height="71"/>
                                 <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="71"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="351-Eb-gLI">
-                                <rect key="frame" x="95" y="791" width="223" height="30"/>
+                                <rect key="frame" x="95" y="497" width="129" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OqS-nm-PYK"/>
                                 </constraints>
-                                <state key="normal" title="Info y Configuraciﾃｳn">
+                                <state key="normal" title="Informaciﾃｳn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-Ub-OTH">
-                                <rect key="frame" x="32" y="366" width="349" height="52"/>
+                                <rect key="frame" x="32" y="342" width="255" height="52"/>
                                 <color key="backgroundColor" red="0.26663362979888916" green="0.26668566465377808" blue="0.26663035154342651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="6ZT-sY-Euf"/>
@@ -80,17 +80,17 @@
             <objects>
                 <viewController id="FrA-l7-6cU" customClass="SidesViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5aX-aw-9fN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdx-uA-7Ny">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPY-sR-it5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3R-C2-HLT">
-                                                <rect key="frame" x="8" y="810" width="398" height="44"/>
+                                                <rect key="frame" x="8" y="516" width="304" height="44"/>
                                                 <color key="backgroundColor" red="0.26663362979999999" green="0.26668566469999999" blue="0.26663035149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="3H9-aV-SgA"/>
@@ -103,23 +103,36 @@
                                                     <segue destination="sy7-Ra-5t6" kind="unwind" unwindAction="unwindPlaygroundAtHomeFor:" id="mib-VZ-tMP"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Xb-7XG">
+                                                <rect key="frame" x="8" y="464" width="304" height="44"/>
+                                                <color key="backgroundColor" red="0.90962344408035278" green="0.4431755542755127" blue="0.72999942302703857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Resolver">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="mJ4-tk-rJK" kind="popoverPresentation" identifier="popOverSegue" popoverAnchorView="mfr-Xb-7XG" id="n9w-fh-mAa">
+                                                        <popoverArrowDirection key="popoverArrowDirection"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jt5-iv-Fer">
-                                                <rect key="frame" x="8" y="53.999999999999972" width="398" height="413.33333333333326"/>
+                                                <rect key="frame" x="8" y="40" width="304" height="413.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5lH-xu-vfw">
-                                                        <rect key="frame" x="141" y="287.33333333333331" width="187" height="30"/>
+                                                        <rect key="frame" x="141" y="287.5" width="93" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74w-oJ-7UE">
-                                                        <rect key="frame" x="140" y="363.33333333333331" width="188" height="30"/>
+                                                        <rect key="frame" x="140" y="363.5" width="94" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ﾃ］gulo ﾎｱ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-GQ-ULA">
-                                                        <rect key="frame" x="51" y="291.33333333333331" width="69" height="21"/>
+                                                        <rect key="frame" x="51" y="291.5" width="69" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="cEG-cP-KEp"/>
                                                         </constraints>
@@ -128,13 +141,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ﾃ］gulo ﾎｲ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wp-Ni-iQL">
-                                                        <rect key="frame" x="51" y="330.33333333333331" width="68" height="21"/>
+                                                        <rect key="frame" x="51" y="330.5" width="68" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sG3-qX-qrY">
-                                                        <rect key="frame" x="139.66666666666663" y="131" width="188.33333333333337" height="30"/>
+                                                        <rect key="frame" x="139.5" y="131" width="94.5" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="A7Y-aP-p8b"/>
                                                         </constraints>
@@ -143,34 +156,34 @@
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSR-Yd-jLx">
-                                                        <rect key="frame" x="140.66666666666663" y="169" width="187.33333333333337" height="30"/>
+                                                        <rect key="frame" x="140.5" y="169" width="93.5" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-JZ-3Be">
-                                                        <rect key="frame" x="139.66666666666663" y="207" width="188.33333333333337" height="30"/>
+                                                        <rect key="frame" x="139.5" y="207" width="94.5" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lado b" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-NO-UZV">
-                                                        <rect key="frame" x="51" y="174" width="52.666666666666657" height="21"/>
+                                                        <rect key="frame" x="51" y="174" width="52.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lado c" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVp-j3-iPM">
-                                                        <rect key="frame" x="51" y="212" width="51.666666666666657" height="21"/>
+                                                        <rect key="frame" x="51" y="212" width="51.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LR-sj-wLu">
-                                                        <rect key="frame" x="11" y="85" width="375.66666666666669" height="38.666666666666657"/>
+                                                        <rect key="frame" x="11" y="85" width="281.5" height="38.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escribe los lados que conozcas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8j-s6-JFW">
-                                                                <rect key="frame" x="19" y="7.9999999999999982" width="338.66666666666669" height="21.333333333333329"/>
+                                                                <rect key="frame" x="19" y="8" width="244.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -186,10 +199,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GD-T0-gce">
-                                                        <rect key="frame" x="11" y="244.99999999999997" width="375.66666666666669" height="38.666666666666657"/>
+                                                        <rect key="frame" x="11" y="245" width="281.5" height="38.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escribe los ﾃ｡ngulos que conozcas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVX-h4-8Ed">
-                                                                <rect key="frame" x="12" y="8.9999999999999982" width="352.66666666666669" height="21.333333333333329"/>
+                                                                <rect key="frame" x="12" y="9" width="258.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -204,7 +217,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lado a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wrc-jr-Guo">
-                                                        <rect key="frame" x="51" y="136" width="51.666666666666657" height="21"/>
+                                                        <rect key="frame" x="51" y="136" width="51.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="UeG-Pp-TE1"/>
                                                         </constraints>
@@ -213,20 +226,26 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVG-sf-ay4">
-                                                        <rect key="frame" x="140" y="325.33333333333331" width="188" height="30"/>
+                                                        <rect key="frame" x="140" y="325.5" width="94" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ﾃ］gulo ﾎｸ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMc-nZ-Txa">
-                                                        <rect key="frame" x="51" y="368.33333333333331" width="68" height="21"/>
+                                                        <rect key="frame" x="51" y="368.5" width="68" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOz-Cd-xbZ">
-                                                        <rect key="frame" x="114" y="2" width="169" height="75"/>
-                                                        <state key="normal" title="Button" image="triangle"/>
+                                                        <rect key="frame" x="92" y="8" width="120" height="69"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="HOz-Cd-xbZ" secondAttribute="height" multiplier="40:23" id="wVc-jA-GWt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <state key="normal" backgroundImage="triangulo">
+                                                            <color key="titleColor" red="0.0" green="0.81751543280000005" blue="0.7994543314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <segue destination="Mih-Gk-h3f" kind="show" identifier="playgroundSegue" id="mOC-ac-ooQ"/>
                                                         </connections>
@@ -235,27 +254,26 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="sG3-qX-qrY" firstAttribute="height" secondItem="FSR-Yd-jLx" secondAttribute="height" id="0Ib-Gr-kvV"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HOz-Cd-xbZ" secondAttribute="trailing" constant="115" id="1gm-DS-2xD"/>
                                                     <constraint firstItem="mVp-j3-iPM" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="4eo-ad-Kh2"/>
                                                     <constraint firstItem="5Wp-Ni-iQL" firstAttribute="top" secondItem="dXh-GQ-ULA" secondAttribute="bottom" constant="18" id="9rg-1q-zVs"/>
                                                     <constraint firstItem="Wrc-jr-Guo" firstAttribute="height" secondItem="h2X-NO-UZV" secondAttribute="height" id="Baz-Fv-flQ"/>
                                                     <constraint firstItem="dXh-GQ-ULA" firstAttribute="height" secondItem="5Wp-Ni-iQL" secondAttribute="height" id="FVy-OB-Nmt"/>
                                                     <constraint firstItem="QVG-sf-ay4" firstAttribute="height" secondItem="74w-oJ-7UE" secondAttribute="height" id="Gx3-XI-fNE"/>
-                                                    <constraint firstItem="7LR-sj-wLu" firstAttribute="top" secondItem="HOz-Cd-xbZ" secondAttribute="bottom" constant="8" id="IEl-6j-kSh"/>
                                                     <constraint firstItem="Wvl-JZ-3Be" firstAttribute="top" secondItem="FSR-Yd-jLx" secondAttribute="bottom" constant="8" id="IUv-Lr-9P8"/>
                                                     <constraint firstItem="7GD-T0-gce" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="11" id="KFR-vg-HaQ"/>
                                                     <constraint firstItem="Wvl-JZ-3Be" firstAttribute="leading" secondItem="mVp-j3-iPM" secondAttribute="trailing" constant="37" id="Lew-TE-a67"/>
                                                     <constraint firstItem="mVp-j3-iPM" firstAttribute="top" secondItem="h2X-NO-UZV" secondAttribute="bottom" constant="17" id="MS2-fz-ckD"/>
                                                     <constraint firstItem="5lH-xu-vfw" firstAttribute="height" secondItem="QVG-sf-ay4" secondAttribute="height" id="ODU-hg-o1Y"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HOz-Cd-xbZ" secondAttribute="trailing" constant="92" id="Q0w-oI-Jqm"/>
                                                     <constraint firstAttribute="trailing" secondItem="sG3-qX-qrY" secondAttribute="trailing" constant="70" id="S19-2u-gAZ"/>
                                                     <constraint firstItem="7GD-T0-gce" firstAttribute="top" secondItem="Wvl-JZ-3Be" secondAttribute="bottom" constant="8" id="SRg-58-QLo"/>
                                                     <constraint firstItem="h2X-NO-UZV" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="Sjl-tB-ZjZ"/>
                                                     <constraint firstItem="sG3-qX-qrY" firstAttribute="top" secondItem="7LR-sj-wLu" secondAttribute="bottom" constant="7.3300000000000001" id="T42-j4-H6Z"/>
                                                     <constraint firstItem="Wvl-JZ-3Be" firstAttribute="height" secondItem="5lH-xu-vfw" secondAttribute="height" id="ToJ-eB-H1o"/>
-                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="top" secondItem="Jt5-iv-Fer" secondAttribute="top" constant="2" id="UnR-wi-fM8"/>
-                                                    <constraint firstItem="7LR-sj-wLu" firstAttribute="top" secondItem="Jt5-iv-Fer" secondAttribute="top" constant="85" id="XaP-Ll-bIe"/>
+                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="top" secondItem="Jt5-iv-Fer" secondAttribute="top" constant="8" id="XjU-jP-pTs"/>
                                                     <constraint firstItem="WMc-nZ-Txa" firstAttribute="top" secondItem="5Wp-Ni-iQL" secondAttribute="bottom" constant="17" id="XmT-CH-1fD"/>
                                                     <constraint firstAttribute="bottom" secondItem="WMc-nZ-Txa" secondAttribute="bottom" constant="24" id="Xy9-Os-7Dd"/>
+                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="92" id="Zca-V5-xgA"/>
                                                     <constraint firstAttribute="trailing" secondItem="74w-oJ-7UE" secondAttribute="trailing" constant="70" id="Zpm-Ab-nlr"/>
                                                     <constraint firstItem="dXh-GQ-ULA" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="aBb-HW-lEs"/>
                                                     <constraint firstAttribute="trailing" secondItem="QVG-sf-ay4" secondAttribute="trailing" constant="70" id="cMJ-IT-0CF"/>
@@ -278,38 +296,25 @@
                                                     <constraint firstAttribute="trailing" secondItem="7LR-sj-wLu" secondAttribute="trailing" constant="11.5" id="qgt-ZJ-vlR"/>
                                                     <constraint firstItem="h2X-NO-UZV" firstAttribute="height" secondItem="mVp-j3-iPM" secondAttribute="height" id="sFb-m4-rbL"/>
                                                     <constraint firstItem="FSR-Yd-jLx" firstAttribute="top" secondItem="sG3-qX-qrY" secondAttribute="bottom" constant="8" id="tpo-hc-Daq"/>
+                                                    <constraint firstItem="7LR-sj-wLu" firstAttribute="top" secondItem="HOz-Cd-xbZ" secondAttribute="bottom" constant="8" id="uDz-Xq-KI8"/>
                                                     <constraint firstItem="7LR-sj-wLu" firstAttribute="height" secondItem="7GD-T0-gce" secondAttribute="height" id="uef-ny-5cx"/>
                                                     <constraint firstItem="WMc-nZ-Txa" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="51" id="vaE-T7-Yzy"/>
                                                     <constraint firstAttribute="trailing" secondItem="7GD-T0-gce" secondAttribute="trailing" constant="11.5" id="vch-5a-lsB"/>
-                                                    <constraint firstItem="HOz-Cd-xbZ" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="114" id="xjT-Lb-WtM"/>
                                                     <constraint firstAttribute="trailing" secondItem="Wvl-JZ-3Be" secondAttribute="trailing" constant="70" id="xpq-so-Ato"/>
                                                     <constraint firstAttribute="trailing" secondItem="FSR-Yd-jLx" secondAttribute="trailing" constant="70" id="y7l-zo-hWH"/>
                                                     <constraint firstItem="7LR-sj-wLu" firstAttribute="leading" secondItem="Jt5-iv-Fer" secondAttribute="leading" constant="11" id="yCV-7X-1lp"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Xb-7XG">
-                                                <rect key="frame" x="8" y="758" width="398" height="44"/>
-                                                <color key="backgroundColor" red="0.90962344408035278" green="0.4431755542755127" blue="0.72999942302703857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Resolver">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="mJ4-tk-rJK" kind="popoverPresentation" identifier="popOverSegue" popoverAnchorView="mfr-Xb-7XG" id="n9w-fh-mAa">
-                                                        <popoverArrowDirection key="popoverArrowDirection"/>
-                                                    </segue>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.81751543280000005" blue="0.7994543314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="x3R-C2-HLT" firstAttribute="height" secondItem="mfr-Xb-7XG" secondAttribute="height" id="4lg-wY-vga"/>
                                             <constraint firstAttribute="bottom" secondItem="x3R-C2-HLT" secondAttribute="bottom" constant="8" id="59h-OO-XhK"/>
+                                            <constraint firstItem="Jt5-iv-Fer" firstAttribute="top" secondItem="LPY-sR-it5" secondAttribute="top" constant="40" id="B6U-DW-n7F"/>
                                             <constraint firstAttribute="trailing" secondItem="mfr-Xb-7XG" secondAttribute="trailing" constant="8" id="Ra6-1d-iZv"/>
                                             <constraint firstAttribute="trailing" secondItem="x3R-C2-HLT" secondAttribute="trailing" constant="8" id="YzK-Lu-1c9"/>
                                             <constraint firstAttribute="trailing" secondItem="Jt5-iv-Fer" secondAttribute="trailing" constant="8" id="aY0-gS-Qdf"/>
                                             <constraint firstItem="mfr-Xb-7XG" firstAttribute="leading" secondItem="LPY-sR-it5" secondAttribute="leading" constant="8" id="gdV-gn-M3v"/>
-                                            <constraint firstItem="Jt5-iv-Fer" firstAttribute="top" secondItem="LPY-sR-it5" secondAttribute="top" constant="54" id="mbu-Ne-KlX"/>
                                             <constraint firstItem="Jt5-iv-Fer" firstAttribute="leading" secondItem="LPY-sR-it5" secondAttribute="leading" constant="8" id="ofz-na-Ll5"/>
                                             <constraint firstItem="x3R-C2-HLT" firstAttribute="top" secondItem="mfr-Xb-7XG" secondAttribute="bottom" constant="8" id="rRh-sx-EYb"/>
                                             <constraint firstItem="x3R-C2-HLT" firstAttribute="leading" secondItem="LPY-sR-it5" secondAttribute="leading" constant="8" id="tMR-cw-UlR"/>
@@ -376,14 +381,14 @@
             <objects>
                 <viewController id="OQ3-9t-784" customClass="InfoViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SXO-CS-WMk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h39-L3-3ka">
-                                <rect key="frame" x="13" y="52" width="389" height="690"/>
+                                <rect key="frame" x="13" y="28" width="295" height="420"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7y-Rc-iWV">
-                                        <rect key="frame" x="8" y="8" width="373" height="674"/>
+                                        <rect key="frame" x="8" y="8" width="279" height="404"/>
                                         <string key="text">Trigvia ha sido desarrollado por estudiantes del Tecnolﾃｳgico de Monterrey durante el semestre Enero Mayo de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Mﾃｳviles y asesorados por los maestros Yolanda Martﾃｭnez Treviﾃｱo e Irving Hidrogo Montemayor.
  
 Desarrolladores:
@@ -403,10 +408,11 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
                                     <constraint firstAttribute="bottom" secondItem="H7y-Rc-iWV" secondAttribute="bottom" constant="8" id="IZh-xz-GPa"/>
                                     <constraint firstAttribute="trailing" secondItem="H7y-Rc-iWV" secondAttribute="trailing" constant="8" id="Oiq-KO-id4"/>
                                     <constraint firstItem="H7y-Rc-iWV" firstAttribute="leading" secondItem="h39-L3-3ka" secondAttribute="leading" constant="8" id="QRo-Bw-y8O"/>
+                                    <constraint firstAttribute="width" secondItem="h39-L3-3ka" secondAttribute="height" multiplier="59:84" id="pjs-Mc-moy"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SQ-dA-cgT">
-                                <rect key="frame" x="129" y="781" width="156" height="30"/>
+                                <rect key="frame" x="129" y="487" width="62" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2Gd-V7-7Hd"/>
                                     <constraint firstAttribute="height" constant="30" id="76j-Vn-Cgy"/>
@@ -443,27 +449,27 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
             <objects>
                 <viewController id="Mih-Gk-h3f" customClass="PlaygroundViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c6g-ye-CMf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cws-PL-rOf" customClass="BezierView" customModule="Trigvia" customModuleProvider="target">
-                                <rect key="frame" x="8" y="104" width="398" height="507"/>
+                                <rect key="frame" x="8" y="80" width="304" height="237"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWD-Ze-ua0">
-                                <rect key="frame" x="8" y="619" width="398" height="154"/>
+                                <rect key="frame" x="8" y="325" width="304" height="154"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJl-o9-YIs">
-                                        <rect key="frame" x="8" y="10" width="382" height="44"/>
+                                        <rect key="frame" x="8" y="10" width="288" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ﾃ］gulos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-Fg-CCI">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9K-rp-xlq">
-                                                <rect key="frame" x="195" y="0.0" width="187" height="44"/>
+                                                <rect key="frame" x="148" y="0.0" width="140" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -483,19 +489,19 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imN-L9-G5s">
-                                        <rect key="frame" x="322" y="63" width="42" height="21"/>
+                                        <rect key="frame" x="228" y="63" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-Ri-6K3">
-                                        <rect key="frame" x="322" y="92" width="42" height="21"/>
+                                        <rect key="frame" x="228" y="92" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzi-rT-ACG">
-                                        <rect key="frame" x="322" y="120" width="42" height="21"/>
+                                        <rect key="frame" x="228" y="120" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -519,7 +525,7 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ﾎｱ =" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fw-7A-WaN">
-                                        <rect key="frame" x="33" y="62" width="25.666666666666671" height="21"/>
+                                        <rect key="frame" x="33" y="62" width="25.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -531,25 +537,25 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ﾎｸ = " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQj-a4-7nz">
-                                        <rect key="frame" x="33" y="120" width="29.666666666666671" height="21"/>
+                                        <rect key="frame" x="33" y="120" width="29.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a =" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cun-3a-aKH">
-                                        <rect key="frame" x="281" y="64" width="30" height="21"/>
+                                        <rect key="frame" x="187" y="64" width="30" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="b = " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qws-B6-VBx">
-                                        <rect key="frame" x="281" y="92" width="30" height="21"/>
+                                        <rect key="frame" x="187" y="92" width="30" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="c = " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fir-gm-6nF">
-                                        <rect key="frame" x="281" y="120" width="30" height="21"/>
+                                        <rect key="frame" x="187" y="120" width="30" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -593,7 +599,7 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNt-sp-wvP">
-                                <rect key="frame" x="8" y="781" width="398" height="52"/>
+                                <rect key="frame" x="8" y="487" width="304" height="52"/>
                                 <color key="backgroundColor" red="0.26663362979999999" green="0.26668566469999999" blue="0.26663035149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Pak-Rw-ziK"/>
@@ -641,6 +647,6 @@ Trigvia se distribuye como estﾃ｡ de manera gratuita y se prohﾃｭbe su distribuciﾃ
         </scene>
     </scenes>
     <resources>
-        <image name="triangle" width="360" height="360"/>
+        <image name="triangulo" width="360" height="360"/>
     </resources>
 </document>
