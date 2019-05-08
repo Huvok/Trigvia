@@ -376,16 +376,53 @@
             <objects>
                 <viewController id="mJ4-tk-rJK" customClass="SolutionPopOverViewController" customModule="Trigvia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="opZ-za-jyT">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.94309882450000004" blue="0.53718521360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBt-rW-q2l">
+                                <rect key="frame" x="0.0" y="171" width="350" height="329"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIr-vt-JV9">
+                                <rect key="frame" x="286" y="40" width="44" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cZH-gH-fw5"/>
+                                    <constraint firstAttribute="width" constant="44" id="x12-u7-dvR"/>
+                                </constraints>
+                                <state key="normal" title="Cerrar"/>
+                                <connections>
+                                    <action selector="closePopOver" destination="mJ4-tk-rJK" eventType="touchUpInside" id="cEG-7Z-OS0"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle" translatesAutoresizingMaskIntoConstraints="NO" id="SIX-Fp-j96">
+                                <rect key="frame" x="107" y="70" width="136" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="0Be-H5-cYo"/>
+                                    <constraint firstAttribute="width" constant="136" id="h13-ps-Uia"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MBt-rW-q2l" firstAttribute="bottom" secondItem="wrf-uR-JJ9" secondAttribute="bottom" id="0Tw-A9-o9L"/>
+                            <constraint firstItem="SIX-Fp-j96" firstAttribute="top" secondItem="aIr-vt-JV9" secondAttribute="bottom" id="FOe-HQ-Bp0"/>
+                            <constraint firstItem="aIr-vt-JV9" firstAttribute="top" secondItem="wrf-uR-JJ9" secondAttribute="top" constant="20" id="O6l-5D-MP5"/>
+                            <constraint firstItem="MBt-rW-q2l" firstAttribute="trailing" secondItem="wrf-uR-JJ9" secondAttribute="trailing" id="THy-rn-RaP"/>
+                            <constraint firstItem="MBt-rW-q2l" firstAttribute="top" secondItem="SIX-Fp-j96" secondAttribute="bottom" constant="20" id="WoV-Cf-3mC"/>
+                            <constraint firstItem="SIX-Fp-j96" firstAttribute="centerX" secondItem="opZ-za-jyT" secondAttribute="centerX" id="bdG-Uf-cbM"/>
+                            <constraint firstItem="wrf-uR-JJ9" firstAttribute="trailing" secondItem="aIr-vt-JV9" secondAttribute="trailing" constant="20" id="foz-xb-bKS"/>
+                            <constraint firstItem="MBt-rW-q2l" firstAttribute="leading" secondItem="wrf-uR-JJ9" secondAttribute="leading" id="y3K-5C-lCW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wrf-uR-JJ9"/>
                     </view>
-                    <size key="freeformSize" width="200" height="200"/>
+                    <size key="freeformSize" width="350" height="500"/>
+                    <connections>
+                        <outlet property="exitBtn" destination="aIr-vt-JV9" id="RDw-aZ-3Xw"/>
+                        <outlet property="scrollView" destination="MBt-rW-q2l" id="sHR-KJ-djh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyE-7B-Ka9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="962" y="1158"/>
+            <point key="canvasLocation" x="964.79999999999995" y="1308.8455772113944"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="I0S-vT-uw6">

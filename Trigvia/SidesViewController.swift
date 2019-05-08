@@ -28,6 +28,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
     
     var anglesNames = ["\\alpha", "\\beta", "\\theta"]
     var sideNames = ["a", "b", "c"]
+    var lines = 0
     
     let MAX_ERROR_MARGIN = 0.000001
     
@@ -110,6 +111,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         angles = [Double?](repeating: nil, count: 3)
         sides = [Double?](repeating: nil, count: 3)
         solutionSteps = [String]()
+        lines = 0
     }
     
     func numToStr(num: Double?) -> String {
@@ -119,14 +121,17 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
     func addCurrentMeasuresToSolutionSteps() {
         if countProvidedMeasures(arr: angles) > 0 || countProvidedMeasures(arr: sides) > 0 {
             solutionSteps.append("\\text{Tenemos que:} \\\\")
+            lines = lines + 1
             for i in 0...2 {
                 if angles[i] != nil {
                     solutionSteps.append("\(anglesNames[i])=\(numToStr(num: angles[i]))^{o}\\\\")
+                    lines = lines + 1
                 }
             }
             for i in 0...2 {
                 if sides[i] != nil {
                     solutionSteps.append("\(sideNames[i])=\(numToStr(num: sides[i]))\\\\")
+                    lines = lines + 1
                 }
             }
         }
@@ -172,6 +177,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             if angles[i] == nil {
                 angles[i] = remVal
                 solutionSteps.append("\\text{Por suma de angulos internos en}\\\\ \\text{un triangulo, obtenemos que}\\\\ \(anglesNames[i]) = 180^{o} - \(anglesNames[(i+1)%3]) - \(anglesNames[(i+2)%3]) = \(numToStr(num: remVal))^{o}\\\\ ")
+                lines = lines + 3
             }
         }
     }
@@ -187,7 +193,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             }
         }
         // solve as much as you can
-        var usedRatioIdx = false
         for i in 0...2 {
             if ratio != nil && sides[i] != nil && angles[i] == nil {
                 if sides[0] != nil && sides[1] != nil && sides[2] != nil{
@@ -208,19 +213,17 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 }else{
                     angles[i] = radiansToDegrees(radians: asin(ratio! * sides[i]!))
                 }
-                if(!usedRatioIdx){
-                    solutionSteps.append("\\text{Dado que}\\\\ \\frac{sin(\(anglesNames[idxOfRatio]))}{\(sideNames[idxOfRatio])}=\(numToStr(num: ratio))\\\\ ")
-                    usedRatioIdx = true
-                }
-                solutionSteps.append("\\text{Por ley de senos,}\\\\ \(anglesNames[i])=sin^{-1}(\(numToStr(num: ratio)) \\cdot \(sideNames[i]))=\(numToStr(num: angles[i]))^{o}\\\\ ")
+                solutionSteps.append("\\text{Por ley de senos,}\\\\ \\frac{sin(\(anglesNames[i]))}{\(sideNames[i])}= \\frac{sin(\(anglesNames[idxOfRatio]))}{\(sideNames[idxOfRatio])}=\(numToStr(num: ratio))\\\\ ")
+                lines = lines + 2
+                solutionSteps.append("\\text{Entonces}\\\\ \(anglesNames[i])=sin^{-1}(\(numToStr(num: ratio)) \\cdot \(sideNames[i]))=\(numToStr(num: angles[i]))^{o}\\\\ ")
+                lines = lines + 2
             }
             else if ratio != nil && sides[i] == nil && angles[i] != nil {
                 sides[i] = sin(degreesToRadians(degrees: angles[i]!)) / ratio!
-                if(!usedRatioIdx){
-                    solutionSteps.append("\\text{Dado que}\\\\ \\frac{sin(\(anglesNames[idxOfRatio]))}{\(sideNames[idxOfRatio])}=\(numToStr(num: ratio))\\\\ ")
-                    usedRatioIdx = true
-                }
-                solutionSteps.append("\\text{Por ley de senos,}\\\\ \(sideNames[i])=\\frac{sin(\(anglesNames[i]))}{\(String(format: "%.4f", ratio!))}=\(numToStr(num: sides[i]))\\\\ ")
+                solutionSteps.append("\\text{Por ley de senos,}\\\\ \\frac{sin(\(anglesNames[i]))}{\(sideNames[i])} = \\frac{sin(\(anglesNames[idxOfRatio]))}{\(sideNames[idxOfRatio])}=\(numToStr(num: ratio))\\\\ ")
+                lines = lines + 2
+                solutionSteps.append("\\text{Entonces}\\\\ \(sideNames[i])=\\frac{sin(\(anglesNames[i]))}{\(String(format: "%.4f", ratio!))}=\(numToStr(num: sides[i]))\\\\ ")
+                lines = lines + 2
             }
         }
     }
@@ -230,6 +233,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         if countProvidedMeasures(arr: sides) == 3 {
             if countProvidedMeasures(arr: angles) < 3 {
                 solutionSteps.append("\\text{Teniendo todas las medidas} \\\\ \\text{de los lados, por ley de cosenos}\\\\ ")
+                lines = lines + 2
             }
             for i in 0...2 {
                 let num = sides[i]! * sides[i]! - sides[(i + 1) % 3]! * sides[(i + 1) % 3]! - sides[(i + 2) % 3]! * sides[(i + 2) % 3]!
@@ -237,6 +241,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 let cosAngle = num / den
                 if angles[i] == nil {
                     solutionSteps.append("cos(\(anglesNames[i]))=\\frac{\(sideNames[i])^{2}-\(sideNames[(i + 1) % 3])^{2}-\(sideNames[(i + 2) % 3])^{2}}{-2 \(sideNames[(i + 1) % 3])\(sideNames[(i + 2) % 3])}=\(numToStr(num: radiansToDegrees(radians: acos(cosAngle))))^{o}\\\\")
+                    lines = lines + 1
                 }
                 angles[i] = radiansToDegrees(radians: acos(cosAngle))
             }
@@ -250,7 +255,9 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                         2 * sides[(i + 1) % 3]! * sides[(i + 2) % 3]! * cos(degreesToRadians(degrees: angles[i]!))
                     sides[i] = sides[i]!.squareRoot()
                     solutionSteps.append("\\text{Por ley de cosenos,}\\\\ \(sideNames[i])^{2}=\(sideNames[(i + 1) % 3])^{2}+\(sideNames[(i + 2) % 3])^{2}-2 \(sideNames[(i + 1) % 3]) \(sideNames[(i + 2) % 3]) \\cdot cos(\(anglesNames[i]))=\(numToStr(num: sides[i]! * sides[i]!))\\\\ ")
+                    lines = lines + 2
                     solutionSteps.append("\(sideNames[i])=\\sqrt{\(numToStr(num: sides[i]! * sides[i]!))}=\(numToStr(num: sides[i]))\\\\ ")
+                    lines = lines + 1
                 }
             }
         }
@@ -491,6 +498,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             popOverView.width = self.view.frame.width - 20
             popOverView.height = self.view.frame.height - 20
             popOverView.solutionSteps = solutionSteps
+            popOverView.lines = lines
         }
         else if segue.identifier == "playgroundSegue" {
             let playgroundView = segue.destination as! PlaygroundViewController
