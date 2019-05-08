@@ -89,9 +89,9 @@ class BezierView: UIView {
     }
     
     func createTextLayer() {
-        drawLetter(letter: "A", x: x1, y: y1)
-        drawLetter(letter: "B", x: x2, y: y2)
-        drawLetter(letter: "C", x: x3, y: y3)
+        drawLetter(letter: "α", x: x1, y: y1)
+        drawLetter(letter: "β", x: x2, y: y2)
+        drawLetter(letter: "θ", x: x3, y: y3)
         drawLetter(letter: "a", x: (x2 + x3) / 2, y: (y2 + y3) / 2)
         drawLetter(letter: "b", x: (x3 + x1) / 2, y: (y3 + y1) / 2)
         drawLetter(letter: "c", x: (x1 + x2) / 2, y: (y1 + y2) / 2)
