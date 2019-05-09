@@ -176,7 +176,7 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         for i in 0...2 {
             if angles[i] == nil {
                 angles[i] = remVal
-                solutionSteps.append("\\text{Por suma de angulos internos en}\\\\ \\text{un triangulo, obtenemos que}\\\\ \(anglesNames[i]) = 180^{o} - \(anglesNames[(i+1)%3]) - \(anglesNames[(i+2)%3]) = \(numToStr(num: remVal))^{o}\\\\ ")
+                solutionSteps.append("\\text{Por suma de \'{a}ngulos internos en}\\\\ \\text{un tri\'{a}ngulo, obtenemos que}\\\\ \(anglesNames[i]) = 180^{o} - \(anglesNames[(i+1)%3]) - \(anglesNames[(i+2)%3]) = \(numToStr(num: remVal))^{o}\\\\ ")
                 lines = lines + 3
             }
         }
@@ -297,7 +297,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
                 }
                 else{
                     ratio = sin(degreesToRadians(degrees: angles[i]!)) / sides[i]!
-                    print(ratio)
                 }
             }
         }
@@ -374,7 +373,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
         a = radiansToDegrees(radians: a)
         b = radiansToDegrees(radians: b)
         c = radiansToDegrees(radians: c)
-        print(ang, a, b, c)
         if !closeCompare(numA: a, numB: ang) &&
             !closeCompare(numA: b, numB: ang) &&
             !closeCompare(numA: c, numB: ang){
@@ -402,7 +400,6 @@ class SidesViewController: UIViewController, UIPopoverPresentationControllerDele
             }
         case 1:
             // must provide at least 2 sides
-            print("2 sides")
             if sidesProvided <= 1 {
                 showAlert(message: ERROR_MESSAGES_SIDES[2])
                 return false
